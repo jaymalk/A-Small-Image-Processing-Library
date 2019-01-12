@@ -22,11 +22,12 @@ vector<vector<int>> maxPool(vector<vector<int>> matrix, int filterSize = 2, int 
     vector<vector<int>> pooledMatrix(poolMatrixSize);
 
     int row = 0;
-    for(int i=0; i<SIZE+padSize; i+=stride){
+    int iter = SIZE+padSize-filterSize;
+    for(int i=0; i<=iter; i+=stride){
         pooledMatrix[row] = vector<int>(poolMatrixSize);
         
         int column = 0;
-        for(int j=0; j<SIZE+padSize; j+=stride){
+        for(int j=0; j<=iter; j+=stride){
             
             int max = matrix[i][j];
             
@@ -63,11 +64,12 @@ vector<vector<float>> maxPool(vector<vector<float>> matrix, int filterSize = 2, 
     vector<vector<float>> pooledMatrix(poolMatrixSize);
 
     int row = 0;
-    for(int i=0; i<SIZE+padSize; i+=stride){
+    int iter = SIZE+padSize-filterSize;
+    for(int i=0; i<=iter; i+=stride){
         pooledMatrix[row] = vector<float>(poolMatrixSize);
         
         int column = 0;
-        for(int j=0; j<SIZE+padSize; j+=stride){
+        for(int j=0; j<=iter; j+=stride){
             
             float max = matrix[i][j];
             
@@ -103,11 +105,12 @@ vector<vector<float>> avgPool(vector<vector<int>> matrix, int filterSize = 2, in
     vector<vector<float>> pooledMatrix(poolMatrixSize);
 
     int row = 0;
-    for(int i=0; i<SIZE+padSize; i+=stride){
+    int iter = SIZE+padSize-filterSize;
+    for(int i=0; i<=iter; i+=stride){
         pooledMatrix[row] = vector<float>(poolMatrixSize);
         
         int column = 0;
-        for(int j=0; j<SIZE+padSize; j+=stride){
+        for(int j=0; j<=iter; j+=stride){
             
             float sum = 0.0f;
             
@@ -142,11 +145,12 @@ vector<vector<float>> avgPool(vector<vector<float>> matrix, int filterSize = 2, 
     vector<vector<float>> pooledMatrix(poolMatrixSize);
 
     int row = 0;
-    for(int i=0; i<SIZE+padSize; i+=stride){
+    int iter = SIZE+padSize-filterSize;
+    for(int i=0; i<=iter; i+=stride){
         pooledMatrix[row] = vector<float>(poolMatrixSize);
         
         int column = 0;
-        for(int j=0; j<SIZE+padSize; j+=stride){
+        for(int j=0; j<=iter; j+=stride){
             
             float sum = 0.0f;
             
@@ -171,7 +175,7 @@ vector<vector<float>> avgPool(vector<vector<float>> matrix, int filterSize = 2, 
                             {1,2,3,4,5,6,7},
                             {1,2,3,4,5,6,7}};
     
-    vector<vector<float>> pooled = avgPool(v,3,3);
+    vector<vector<int>> pooled = maxPool(v,3,2);
     int n = pooled.size();
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++)
