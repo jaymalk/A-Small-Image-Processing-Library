@@ -1,4 +1,5 @@
 #include <vector>
+//#include <iostream>
 #include "padding.h"
 using namespace std;
 
@@ -123,7 +124,7 @@ vector<vector<float>> avgPool(vector<vector<int>> matrix, int filterSize = 2, in
     return pooledMatrix;
 }
 
-vector<vector<float>> maxPool(vector<vector<float>> matrix, int filterSize = 2, int stride = 2 ){
+vector<vector<float>> avgPool(vector<vector<float>> matrix, int filterSize = 2, int stride = 2 ){
     if(filterSize <= 0)
         throw "Invalid filter size";
     if(stride <= 0)
@@ -160,3 +161,22 @@ vector<vector<float>> maxPool(vector<vector<float>> matrix, int filterSize = 2, 
     } 
     return pooledMatrix;
 }
+
+/*int main(){
+    vector<vector<int>> v{{1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7},
+                            {1,2,3,4,5,6,7}};
+    
+    vector<vector<float>> pooled = avgPool(v,3,3);
+    int n = pooled.size();
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++)
+            cout<<pooled[i][j]<<" ";
+        cout<<endl;
+    }
+}
+*/
