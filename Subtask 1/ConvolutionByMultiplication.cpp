@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include "./padding.cpp"
 using namespace std;
 
 
@@ -49,7 +50,10 @@ vector<vector<float>> changeToSqaure2D(vector<float> col) {
 }
 
 /* The encapsulating layer for complete function */
-vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix) {
+/* To include padding additional argument 'boolean' shall sumise*/
+vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool padding=false) {
+  if(padding)
+    matrix = pad(matrix, kernel.size()-1);
   vector<float> kernel1D = changeTo1D(kernel);
   vector<vector<float>> toeplitz = convertToToeplitzMatrix(matrix, kernel.size());
   vector<float> conv1d = getConvolutionByMultiplication(toeplitz, kernel1D);
@@ -71,11 +75,13 @@ void print1DMatrix(vector<float> c) {
     cout << c[i] << " ";
   cout << "\n";
 }
-// 
+
 // int main() {
-//   vector<vector<float>> a{{1, 0, 1}, {1, -1, 1}, {1, 0, 1}};
+//   vector<vector<float>> a{{1, 0, 1, 0}, {1, 0, 1, 1}, {1, 1, 0, 1}, {1, 0, 0, 1}};
 //   vector<vector<float>> b{{1, 2, 2, 2, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}};
 //   vector<vector<float>> c = convolutionByMultiplication(a, b);
+//   print2DSquareMatrix(c);
+//   c = convolutionByMultiplication(a, b, true);
 //   print2DSquareMatrix(c);
 //   return 0;
 // }
