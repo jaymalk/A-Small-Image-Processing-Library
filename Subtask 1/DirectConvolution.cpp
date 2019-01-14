@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include "./padding.cpp"
+// #include "./padding.cpp"
 #include "./ConvolutionByMultiplication.cpp"
 using namespace std;
 
@@ -32,8 +32,19 @@ vector<vector<float>> mapping(vector<vector<float>> kernel, vector<vector<float>
             for(int k=0; k<kernelSize; k++)
                 for(int l=0; l<kernelSize; l++)
                     val += matrix[i+k][j+l]*kernel[k][l];
-            conv[j].push_back(val);
+            conv[i].push_back(val);
         }
 
     return conv;
 }
+
+/*
+int main() {
+    vector<vector<float>> a{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    vector<vector<float>> b{{1, 2, 2, 2, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}};
+    print2DSquareMatrix(mapping(a, b, false));
+    print2DSquareMatrix(mapping(a, b, true));
+    print2DSquareMatrix(mapping(a, b, false, true));
+    return 0;
+}
+*/
