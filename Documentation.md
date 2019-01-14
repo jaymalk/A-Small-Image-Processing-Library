@@ -1,22 +1,33 @@
 # Documentation
 ## Subtask 1
 
-#### Working (Command Line Arguments)
+### Working (Command Line Arguments)
 
 **Convolution**
-- Matrix multiplication
-<p> Command Format : ``` ./a.out [fuction] [matrix_file] [kernel_file] ```<br>
-Functions </p>
+
+Command Format <br><br>
+Output on console : `./a.out [fuction] [matrix_file] [kernel_file]` <br>
+Saving on file : `./a.out [fuction] [matrix_file] [kernel_file] [output_file]` <br>
+
+- Direct convolution
 
 Task | Function
 ------------ | -------------
-Convolution (direct) without padding | ```conv```
-Convolution (direct) with padding | ```conv_pad```
-Convolution (matrix multiplication) without padding | ```conv_mult```
-Convolution (matrix multiplication) with padding | ```conv_mult_pad```
+Convolution without padding | ```conv```
+Convolution with padding | ```conv_pad```
+Cross-correlation without padding | ```cross```
+Cross-correlation with padding | ```cross_pad```
 
 
-- Direct convolution
+- Matrix multiplication
+
+Task | Function
+------------ | -------------
+Convolution without padding | ```conv_mult```
+Convolution with padding | ```conv_mult_pad```
+Cross-correlation without padding | ```cross_mult```
+Cross-correlation with padding | ```cross_mult_pad```
+
 
 **Activation**
 - ***relu***
@@ -26,6 +37,6 @@ Convolution (matrix multiplication) with padding | ```conv_mult_pad```
 - *Max Pooling*
 - *Average Pooling*
 
-#### Functions
+### Functions
 
 **Convolution**
