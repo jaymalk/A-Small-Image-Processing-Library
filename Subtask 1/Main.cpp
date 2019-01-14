@@ -40,10 +40,10 @@ int main(int argc, char const *argv[]) {
                         kernel = inputMatrix(argv[3]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.");
+                        throw runtime_error("Error with kernel file. Please check.\n");
                     }
                     if(kernel.size() > matrix.size())
-                        throw runtime_error("Invalid: Kernel size is greater than matrix size.");
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
                     if(argc == 4)
                     /* Output on command line*/
                     {
@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
                             writeSquareMatrix(mapping(kernel, matrix, true), out);
                         }
                         catch(...) {
-                            throw runtime_error("Error in writing. Please check.");
+                            throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
                     else
@@ -79,10 +79,10 @@ int main(int argc, char const *argv[]) {
                         kernel = inputMatrix(argv[3]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.");
+                        throw runtime_error("Error with kernel file. Please check.\n");
                     }
                     if(kernel.size() > matrix.size())
-                        throw runtime_error("Invalid: Kernel size is greater than matrix size.");
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
                     if(argc == 4)
                     /* Output on command line*/
                     {
@@ -96,7 +96,7 @@ int main(int argc, char const *argv[]) {
                             writeSquareMatrix(mapping(kernel, matrix, true, true), out);
                         }
                         catch(...) {
-                            throw runtime_error("Error in writing. Please check.");
+                            throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
                     else
@@ -117,10 +117,10 @@ int main(int argc, char const *argv[]) {
                         kernel = inputMatrix(argv[3]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.");
+                        throw runtime_error("Error with kernel file. Please check.\n");
                     }
                     if(kernel.size() > matrix.size())
-                        throw runtime_error("Invalid: Kernel size is greater than matrix size.");
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
                     if(argc == 4)
                     /* Output on command line*/
                     {
@@ -134,7 +134,7 @@ int main(int argc, char const *argv[]) {
                             writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true), out);
                         }
                         catch(...) {
-                            throw runtime_error("Error in writing. Please check.");
+                            throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
                     else
@@ -155,10 +155,10 @@ int main(int argc, char const *argv[]) {
                         kernel = inputMatrix(argv[3]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.");
+                        throw runtime_error("Error with kernel file. Please check.\n");
                     }
                     if(kernel.size() > matrix.size())
-                        throw runtime_error("Invalid: Kernel size is greater than matrix size.");
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
                     if(argc == 4)
                     /* Output on command line*/
                     {
@@ -172,7 +172,7 @@ int main(int argc, char const *argv[]) {
                             writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true, true), out);
                         }
                         catch(...) {
-                            throw runtime_error("Error in writing. Please check.");
+                            throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
                     else
@@ -186,7 +186,161 @@ int main(int argc, char const *argv[]) {
             else if(argv[1][1] == 'r')
             /* cross */
             {
+                if(!strcmp("cross", argv[1])) {
+                    vector<vector<float>> matrix{};
+                    try {
+                        matrix = inputMatrix(argv[2]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with matrix file. Please check.\n");
+                    }
+                    vector<vector<float>> kernel{};
+                    try {
+                        kernel = inputMatrix(argv[3]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with kernel file. Please check.\n");
+                    }
+                    if(kernel.size() > matrix.size())
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
+                    if(argc == 4)
+                    /* Output on command line*/
+                    {
+                        writeSquareMatrix(mapping(kernel, matrix, false));
+                    }
+                    else if (argc == 5)
+                    /* Output in File*/
+                    {
+                        try {
+                            ofstream out(argv[3]);
+                            writeSquareMatrix(mapping(kernel, matrix, false), out);
+                        }
+                        catch(...) {
+                            throw runtime_error("Error in writing. Please check.\n");
+                        }
+                    }
+                    else
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
 
+                }
+
+
+                else if(!strcmp("cross_pad", argv[1])) {
+                    vector<vector<float>> matrix{};
+                    try {
+                        matrix = inputMatrix(argv[2]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with matrix file. Please check.\n");
+                    }
+                    vector<vector<float>> kernel{};
+                    try {
+                        kernel = inputMatrix(argv[3]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with kernel file. Please check.\n");
+                    }
+                    if(kernel.size() > matrix.size())
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
+                    if(argc == 4)
+                    /* Output on command line*/
+                    {
+                        writeSquareMatrix(mapping(kernel, matrix, false, true));
+                    }
+                    else if (argc == 5)
+                    /* Output in File*/
+                    {
+                        try {
+                            ofstream out(argv[3]);
+                            writeSquareMatrix(mapping(kernel, matrix, false, true), out);
+                        }
+                        catch(...) {
+                            throw runtime_error("Error in writing. Please check.\n");
+                        }
+                    }
+                    else
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
+                }
+
+
+                else if(!strcmp("cross_mult", argv[1])) {
+                    vector<vector<float>> matrix{};
+                    try {
+                        matrix = inputMatrix(argv[2]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with matrix file. Please check.\n");
+                    }
+                    vector<vector<float>> kernel{};
+                    try {
+                        kernel = inputMatrix(argv[3]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with kernel file. Please check.\n");
+                    }
+                    if(kernel.size() > matrix.size())
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
+                    if(argc == 4)
+                    /* Output on command line*/
+                    {
+                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false));
+                    }
+                    else if (argc == 5)
+                    /* Output in File*/
+                    {
+                        try {
+                            ofstream out(argv[3]);
+                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false), out);
+                        }
+                        catch(...) {
+                            throw runtime_error("Error in writing. Please check.\n");
+                        }
+                    }
+                    else
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
+                }
+
+
+                else if(!strcmp("cross_mult_pad", argv[1])) {
+                    vector<vector<float>> matrix{};
+                    try {
+                        matrix = inputMatrix(argv[2]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with matrix file. Please check.\n");
+                    }
+                    vector<vector<float>> kernel{};
+                    try {
+                        kernel = inputMatrix(argv[3]);
+                    }
+                    catch(...) {
+                        throw runtime_error("Error with kernel file. Please check.\n");
+                    }
+                    if(kernel.size() > matrix.size())
+                        throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
+                    if(argc == 4)
+                    /* Output on command line*/
+                    {
+                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false, true));
+                    }
+                    else if (argc == 5)
+                    /* Output in File*/
+                    {
+                        try {
+                            ofstream out(argv[3]);
+                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false, true), out);
+                        }
+                        catch(...) {
+                            throw runtime_error("Error in writing. Please check.\n");
+                        }
+                    }
+                    else
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
+                }
+
+
+                else
+                    throw runtime_error("Invalid Function. Did you mean 'conv'?\n");
             }
             else
                 throw runtime_error("Invalid Function. Did you mean 'conv' or 'cross'?\n");
@@ -218,7 +372,7 @@ int main(int argc, char const *argv[]) {
                     writeSquareMatrix(relu(matrix), out);
                 }
                 catch(...) {
-                    throw runtime_error("Error in writing. Please check.");
+                    throw runtime_error("Error in writing. Please check.\n");
                 }
             }
             else
@@ -251,7 +405,7 @@ int main(int argc, char const *argv[]) {
                     writeSquareMatrix(tanh(matrix), out);
                 }
                 catch(...) {
-                    throw runtime_error("Error in writing. Please check.");
+                    throw runtime_error("Error in writing. Please check.\n");
                 }
             }
             else
@@ -272,7 +426,7 @@ int main(int argc, char const *argv[]) {
                     vectr = inputVector(argv[2]);
                 }
                 catch(...) {
-                    throw runtime_error("Error with vector file. Please check.");
+                    throw runtime_error("Error with vector file. Please check.\n");
                 }
                 if(argc == 3)
                 /* Output on command line*/
@@ -287,7 +441,7 @@ int main(int argc, char const *argv[]) {
                         writeVector(softmax(vectr), out);
                     }
                     catch(...) {
-                        throw runtime_error("Error in writing. Please check.");
+                        throw runtime_error("Error in writing. Please check.\n");
                     }
                 }
                 else
@@ -303,7 +457,7 @@ int main(int argc, char const *argv[]) {
                     vectr = inputVector(argv[2]);
                 }
                 catch(...) {
-                    throw runtime_error("Error with vector file. Please check.");
+                    throw runtime_error("Error with vector file. Please check.\n");
                 }
                 if(argc == 3)
                 /* Output on command line*/
@@ -318,7 +472,7 @@ int main(int argc, char const *argv[]) {
                         writeVector(sigmoid(vectr), out);
                     }
                     catch(...) {
-                        throw runtime_error("Error in writing. Please check.");
+                        throw runtime_error("Error in writing. Please check.\n");
                     }
                 }
                 else
