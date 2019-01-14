@@ -6,10 +6,11 @@
 #include <fstream>
 #include <cstring>
 
-#include "activation.cpp"
-#include "pool.cpp"
-#include "convolution.cpp"
-#include "IO.cpp"
+#include "activation.h"
+#include "pool.h"
+#include "padding.h"
+#include "convolution.h"
+#include "IO.h"
 
 
 using namespace std;
@@ -32,7 +33,7 @@ int main(int argc, char const *argv[]) {
                         matrix = inputMatrix(argv[2]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.");
+                        throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
@@ -43,12 +44,12 @@ int main(int argc, char const *argv[]) {
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.");
-                    if(argc == 2)
+                    if(argc == 4)
                     /* Output on command line*/
                     {
                         writeSquareMatrix(mapping(kernel, matrix, true));
                     }
-                    else if (argc == 3)
+                    else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
@@ -60,7 +61,7 @@ int main(int argc, char const *argv[]) {
                         }
                     }
                     else
-                        throw runtime_error("Command statement wrong. Please see documentation.");
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
 
                 }
 
@@ -71,7 +72,7 @@ int main(int argc, char const *argv[]) {
                         matrix = inputMatrix(argv[2]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.");
+                        throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
@@ -82,12 +83,12 @@ int main(int argc, char const *argv[]) {
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.");
-                    if(argc == 2)
+                    if(argc == 4)
                     /* Output on command line*/
                     {
                         writeSquareMatrix(mapping(kernel, matrix, true, true));
                     }
-                    else if (argc == 3)
+                    else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
@@ -99,7 +100,7 @@ int main(int argc, char const *argv[]) {
                         }
                     }
                     else
-                        throw runtime_error("Command statement wrong. Please see documentation.");
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
@@ -109,7 +110,7 @@ int main(int argc, char const *argv[]) {
                         matrix = inputMatrix(argv[2]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.");
+                        throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
@@ -120,12 +121,12 @@ int main(int argc, char const *argv[]) {
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.");
-                    if(argc == 2)
+                    if(argc == 4)
                     /* Output on command line*/
                     {
                         writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true));
                     }
-                    else if (argc == 3)
+                    else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
@@ -137,7 +138,7 @@ int main(int argc, char const *argv[]) {
                         }
                     }
                     else
-                        throw runtime_error("Command statement wrong. Please see documentation.");
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
@@ -147,7 +148,7 @@ int main(int argc, char const *argv[]) {
                         matrix = inputMatrix(argv[2]);
                     }
                     catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.");
+                        throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
@@ -158,12 +159,12 @@ int main(int argc, char const *argv[]) {
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.");
-                    if(argc == 2)
+                    if(argc == 4)
                     /* Output on command line*/
                     {
                         writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true, true));
                     }
-                    else if (argc == 3)
+                    else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
@@ -175,7 +176,7 @@ int main(int argc, char const *argv[]) {
                         }
                     }
                     else
-                        throw runtime_error("Command statement wrong. Please see documentation.");
+                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
@@ -202,14 +203,14 @@ int main(int argc, char const *argv[]) {
                 matrix = inputMatrix(argv[2]);
             }
             catch(...) {
-                throw runtime_error("Error with matrix file. Please check.");
+                throw runtime_error("Error with matrix file. Please check.\n");
             }
-            if(argc == 2)
+            if(argc == 3)
             /* Output on command line*/
             {
                 writeSquareMatrix(relu(matrix));
             }
-            else if (argc == 3)
+            else if (argc == 4)
             /* Output in File*/
             {
                 try {
@@ -221,7 +222,7 @@ int main(int argc, char const *argv[]) {
                 }
             }
             else
-                throw runtime_error("Command statement wrong. Please see documentation.");
+                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -235,14 +236,14 @@ int main(int argc, char const *argv[]) {
                 matrix = inputMatrix(argv[2]);
             }
             catch(...) {
-                throw runtime_error("Error with matrix file. Please check.");
+                throw runtime_error("Error with matrix file. Please check.\n");
             }
-            if(argc == 2)
+            if(argc == 3)
             /* Output on command line*/
             {
                 writeSquareMatrix(tanh(matrix));
             }
-            else if (argc == 3)
+            else if (argc == 4)
             /* Output in File*/
             {
                 try {
@@ -254,7 +255,7 @@ int main(int argc, char const *argv[]) {
                 }
             }
             else
-                throw runtime_error("Command statement wrong. Please see documentation.");
+                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -273,12 +274,12 @@ int main(int argc, char const *argv[]) {
                 catch(...) {
                     throw runtime_error("Error with vector file. Please check.");
                 }
-                if(argc == 2)
+                if(argc == 3)
                 /* Output on command line*/
                 {
                     writeVector(softmax(vectr));
                 }
-                else if (argc == 3)
+                else if (argc == 4)
                 /* Output in File*/
                 {
                     try {
@@ -290,7 +291,7 @@ int main(int argc, char const *argv[]) {
                     }
                 }
                 else
-                    throw runtime_error("Command statement wrong. Please see documentation.");
+                    throw runtime_error("Command statement wrong. Please see documentation.\n");
             }
             else if(argv[1][1] == 'i')
             /* sigmoid */
@@ -304,12 +305,12 @@ int main(int argc, char const *argv[]) {
                 catch(...) {
                     throw runtime_error("Error with vector file. Please check.");
                 }
-                if(argc == 2)
+                if(argc == 3)
                 /* Output on command line*/
                 {
                     writeVector(sigmoid(vectr));
                 }
-                else if (argc == 3)
+                else if (argc == 4)
                 /* Output in File*/
                 {
                     try {
@@ -321,7 +322,7 @@ int main(int argc, char const *argv[]) {
                     }
                 }
                 else
-                    throw runtime_error("Command statement wrong. Please see documentation.");
+                    throw runtime_error("Command statement wrong. Please see documentation.\n");
             }
             else
                 throw runtime_error("Invalid Function. Did you mean 'sigmoid' or 'softmax'?\n");
@@ -338,7 +339,7 @@ int main(int argc, char const *argv[]) {
                 matrix = inputMatrix(argv[2]);
             }
             catch(...) {
-                throw runtime_error("Error with matrix file. Please check.");
+                throw runtime_error("Error with matrix file. Please check.\n");
             }
         }
         /*-------------------------------------------------------------
@@ -353,7 +354,7 @@ int main(int argc, char const *argv[]) {
                 matrix = inputMatrix(argv[2]);
             }
             catch(...) {
-                throw runtime_error("Error with matrix file. Please check.");
+                throw runtime_error("Error with matrix file. Please check.\n");
             }
         }
         /*-------------------------------------------------------------
