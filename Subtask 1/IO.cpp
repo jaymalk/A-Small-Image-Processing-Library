@@ -1,10 +1,12 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
-#include "./ConvolutionByMultiplication.cpp"
 #include <vector>
 using namespace std;
 
+
+// INPUT
 /* Input a matrix from a file.
    The matrix is assumed to be in column major order.
    Number of rows is not a predetermined number. */
@@ -56,12 +58,27 @@ vector<float> input_vctr(string filename) {
     return vctr;
 }
 
+
+// OUTPUT
+/* Print/write a 2D square matrix */
+void write2DSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
+    for(int i=0; i<c.size(); i++) {
+            for(int j=0; j<c[i].size(); j++)
+                    out << setw(5) << setprecision(2) << c[i][j];
+            out << "\n";
+    }
+}
+
+/* Print/write a 1D vector */
+void write1DVector(vector<float> c, ostream &out = cout) {
+    for(int i=0; i<c.size(); i++)
+            out << c[i] << " ";
+    out << "\n";
+}
+
 /*
 int main() {
-    for(int i=3; i<10; i++) {
-        // print1DMatrix(input_vctr("./Vectors/vector_"+to_string(i)+".txt"));
-        print2DSquareMatrix(input_matrix("./Matrices/matrix_"+to_string(i)+".txt"));
-        cout << "\n\n";
-    }
+    ofstream out("./test.txt");
+    write2DSquareMatrix(input_matrix("./Matrices/matrix_3.txt"), out);
 }
 */
