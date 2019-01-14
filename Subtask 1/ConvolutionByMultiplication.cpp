@@ -69,7 +69,7 @@ vector<vector<float> > convolutionByMultiplication(vector<vector<float> > kernel
 void print2DSquareMatrix(vector<vector<float> > c) {
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
-                        cout << c[i][j] << " ";
+                        printf("%5.2f ", c[i][j]);
                 cout << "\n";
         }
 }
