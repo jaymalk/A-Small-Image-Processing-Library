@@ -495,6 +495,33 @@ int main(int argc, char const *argv[]) {
             catch(...) {
                 throw runtime_error("Error with matrix file. Please check.\n");
             }
+            if(argc == 5)
+            /* Output on command line */
+            {
+                try {
+                    int filterSize = stoi(argv[3]);
+                    int stride = stoi(argv[4]);
+                    writeSquareMatrix(maxPool(matrix, filterSize, stride));
+                }
+                catch(...) {
+                    throw runtime_error("Command statement wrong. Please see documentation.\n");
+                }
+            }
+            else if(argc == 6)
+            /* Output in a file */
+            {
+                try {
+                    ofstream out(argv[3]);
+                    int filterSize = stoi(argv[4]);
+                    int stride = stoi(argv[5]);
+                    writeSquareMatrix(maxPool(matrix, filterSize, stride), out);
+                }
+                catch(...) {
+                    throw runtime_error("Error in writing. Please check.\n");
+                }
+            }
+            else
+                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -510,6 +537,33 @@ int main(int argc, char const *argv[]) {
             catch(...) {
                 throw runtime_error("Error with matrix file. Please check.\n");
             }
+            if(argc == 5)
+            /* Output on command line */
+            {
+                try {
+                    int filterSize = stoi(argv[3]);
+                    int stride = stoi(argv[4]);
+                    writeSquareMatrix(avgPool(matrix, filterSize, stride));
+                }
+                catch(...) {
+                    throw runtime_error("Command statement wrong. Please see documentation.\n");
+                }
+            }
+            else if(argc == 6)
+            /* Output in a file */
+            {
+                try {
+                    ofstream out(argv[3]);
+                    int filterSize = stoi(argv[4]);
+                    int stride = stoi(argv[5]);
+                    writeSquareMatrix(avgPool(matrix, filterSize, stride), out);
+                }
+                catch(...) {
+                    throw runtime_error("Error in writing. Please check.\n");
+                }
+            }
+            else
+                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
