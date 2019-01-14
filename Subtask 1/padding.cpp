@@ -21,11 +21,9 @@ vector<vector<int>> pad(vector<vector<int>> matrix, int padSize=1){
 
     int copyPadSize = padSize;
     
-    vector<int>:: iterator it;
-    
     while(padSize>1){
         for(int i=0; i<SIZE; i++){
-            it = matrix[i].insert(matrix[i].begin(), 0);
+            matrix[i].insert(matrix[i].begin(), 0);
             matrix[i].push_back(0);
         }
         padSize -= 2;
@@ -39,7 +37,7 @@ vector<vector<int>> pad(vector<vector<int>> matrix, int padSize=1){
     vector<int> paddingVector(SIZE+padSize);  // vector is implicitly initialized with zero
 
     while(padSize>1){
-        auto it = matrix.insert(matrix.begin(), paddingVector);
+        matrix.insert(matrix.begin(), paddingVector);
         matrix.push_back(paddingVector);
         padSize -= 2;
     }
@@ -69,11 +67,9 @@ vector<vector<float>> pad(vector<vector<float>> matrix, int padSize=1){
 
     int copyPadSize = padSize;
     
-    vector<float>:: iterator it;
-    
     while(padSize>1){
         for(int i=0; i<SIZE; i++){
-            it = matrix[i].insert(matrix[i].begin(), 0.0f);
+            matrix[i].insert(matrix[i].begin(), 0.0f);
             matrix[i].push_back(0.0f);
         }
         padSize -= 2;
@@ -87,7 +83,7 @@ vector<vector<float>> pad(vector<vector<float>> matrix, int padSize=1){
     vector<float> paddingVector(SIZE+padSize);  // vector is implicitly initialized with zero
 
     while(padSize>1){
-        auto it = matrix.insert(matrix.begin(), paddingVector);
+        matrix.insert(matrix.begin(), paddingVector);
         matrix.push_back(paddingVector);
         padSize -= 2;
     }

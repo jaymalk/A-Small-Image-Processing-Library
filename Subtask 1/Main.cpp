@@ -8,7 +8,6 @@
 
 #include "activation.h"
 #include "pool.h"
-#include "padding.h"
 #include "convolution.h"
 #include "IO.h"
 
