@@ -42,9 +42,9 @@ Library
         Output on console : `./a.out relu [matrix_file]` <br>
         Saving on file : `./a.out relu [matrix_file] [output_file]` <br><br>
     -  _Library_ (In code)<br>
-    ```cpp
-        vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
-    ```
+        ```cpp
+            vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
+        ```
 
 - ***tanh (Hyperbolic)***
     - _Command Format_ (On console) <br>
@@ -83,9 +83,9 @@ Library
         Output on console : `./a.out max_pool [filterSize] [stride] [matrix_file]` <br>
         Saving on file : `./a.out max_pool [filterSize] [stride] [matrix_file] [output_file]` <br><br>
     -  _Library_ (In code)<br>
-    ```cpp
-        vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
-    ```
+        ```cpp
+            vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
+        ```
 
 - ***Average Pool***
     - _Command Format_ (On console) <br>
@@ -103,5 +103,5 @@ Message | Cause
 _File not found_ | [matrix_file] or [kernel_file] non-existent
 _Size Error_    | Order(kernel) > Order(matrix)
 _Invalid Function_ | Function type is not suitable
-__ | 
+__ |
 _Unknown Error_ | Fault on our side :sweat_smile:
