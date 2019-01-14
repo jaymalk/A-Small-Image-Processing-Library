@@ -80,8 +80,8 @@ Library
 
 - ***Max Pool***<br>
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out max_pool [filterSize] [stride] [matrix_file]` <br>
-        Saving on file : `./a.out max_pool [filterSize] [stride] [matrix_file] [output_file]` <br><br>
+        Output on console : `./a.out max_pool [matrix_file] [filterSize] [stride]` <br>
+        Saving on file : `./a.out max_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
             vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
@@ -89,8 +89,8 @@ Library
 
 - ***Average Pool***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out avg_pool [filterSize] [stride] [matrix_file]` <br>
-        Saving on file : `./a.out avg_pool [filterSize] [stride] [matrix_file] [output_file]` <br><br>
+        Output on console : `./a.out avg_pool [matrix_file] [filterSize] [stride]` <br>
+        Saving on file : `./a.out avg_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );

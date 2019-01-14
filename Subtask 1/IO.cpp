@@ -64,7 +64,7 @@ vector<float> inputVector(string filename) {
 void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
     for(int i=0; i<c.size(); i++) {
             for(int j=0; j<c[i].size(); j++)
-                    out << setw(5) << setprecision(2) << c[i][j];
+                    out << c[i][j] << setw(10) << " ";
             out << "\n";
     }
 }
