@@ -31,7 +31,7 @@ using namespace std;
                 }
         }
         catch(...) {
-            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]");
+            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]\n");
         }
         return matrix;
     }
@@ -46,15 +46,19 @@ using namespace std;
             while(getline(input, line))
                 temp.push_back((float)stoi(line));
             int size = (int)(sqrt(temp.size()));
-            assert(size*size == temp.size());
+            if(size*size != temp.size())
+                throw runtime_error("Input is not a square matrix.\n");
             for(int i=0; i<size; i++) {
                 matrix.push_back(vector<float>{});
                 for(int j=0; j<size; j++)
                     matrix[i].push_back(temp[j*size+i]);
             }
         }
+        catch(runtime_error& e) {
+            throw e;
+        }
         catch(...) {
-            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]");
+            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]\n");
         }
         return matrix;
     }
