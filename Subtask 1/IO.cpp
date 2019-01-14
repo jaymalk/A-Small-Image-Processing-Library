@@ -10,7 +10,7 @@ using namespace std;
 /* Input a matrix from a file.
    The matrix is assumed to be in column major order.
    Number of rows is not a predetermined number. */
-vector<vector<float>> input_matrix(string filename) {
+vector<vector<float>> inputMatrix(string filename) {
     vector<vector<float>> matrix;
     try {
         ifstream input(filename);
@@ -40,7 +40,7 @@ vector<vector<float>> input_matrix(string filename) {
     The vector is assumed to be in a single line.
     Size is not known.
 */
-vector<float> input_vctr(string filename) {
+vector<float> inputVector(string filename) {
     vector<float> vctr{};
     try {
         ifstream input(filename);
@@ -61,7 +61,7 @@ vector<float> input_vctr(string filename) {
 
 // OUTPUT
 /* Print/write a 2D square matrix */
-void write2DSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
+void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
     for(int i=0; i<c.size(); i++) {
             for(int j=0; j<c[i].size(); j++)
                     out << setw(5) << setprecision(2) << c[i][j];
@@ -70,7 +70,7 @@ void write2DSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
 }
 
 /* Print/write a 1D vector */
-void write1DVector(vector<float> c, ostream &out = cout) {
+void writeVector(vector<float> c, ostream &out = cout) {
     for(int i=0; i<c.size(); i++)
             out << c[i] << " ";
     out << "\n";
@@ -79,6 +79,6 @@ void write1DVector(vector<float> c, ostream &out = cout) {
 /*
 int main() {
     ofstream out("./test.txt");
-    write2DSquareMatrix(input_matrix("./Matrices/matrix_3.txt"), out);
+    write2DSquareMatrix(inputMatrix("./Matrices/matrix_3.txt"), out);
 }
 */

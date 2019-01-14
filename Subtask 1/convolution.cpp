@@ -3,7 +3,7 @@
 #include <string>
 #include <cmath>
 #include <algorithm>
-#include "./padding.cpp"
+#include "padding.h"
 using namespace std;
 
 // FORMATTING FUNCTIONS
