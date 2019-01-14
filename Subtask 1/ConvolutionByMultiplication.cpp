@@ -8,8 +8,8 @@ using namespace std;
 
 /* Convert the matrix to toeplitz matrix, by using the order of square kernel
    The conversion of 2D mapping is converted to 1D considering row major*/
-vector<vector<float> > convertToToeplitzMatrix(vector<vector<float> > matrix, int kernel_size) {
-        vector<vector<float> > toeplitz{};
+vector<vector<float>> convertToToeplitzMatrix(vector<vector<float>> matrix, int kernel_size) {
+        vector<vector<float>> toeplitz{};
         for(int i=0; i<matrix.size()-kernel_size+1; i++)
                 for(int j=0; j<matrix.size()-kernel_size+1; j++) {
                         vector<float> row{};
@@ -22,7 +22,7 @@ vector<vector<float> > convertToToeplitzMatrix(vector<vector<float> > matrix, in
 }
 
 /* Multiply the toeplits form and kernel, to get 1D convolution*/
-vector<float> getConvolutionByMultiplication(vector<vector<float> > toeplitz, vector<float> kernel) {
+vector<float> getConvolutionByMultiplication(vector<vector<float>> toeplitz, vector<float> kernel) {
         vector<float> product;
         for(int i=0; i<toeplitz.size(); i++) {
                 float val=0.0;
@@ -34,7 +34,7 @@ vector<float> getConvolutionByMultiplication(vector<vector<float> > toeplitz, ve
 }
 
 /* Change 2D square matrix to 1D matrix(row major) */
-vector<float> changeTo1D(vector<vector<float> > kernel) {
+vector<float> changeTo1D(vector<vector<float>> kernel) {
         vector<float> kernel1D(kernel[0].begin(), kernel[0].end());
         for(int i=1; i<kernel.size(); i++)
                 kernel1D.insert(kernel1D.end(), kernel[i].begin(), kernel[i].end());
@@ -42,8 +42,8 @@ vector<float> changeTo1D(vector<vector<float> > kernel) {
 }
 
 /* Change 1D matrix (in row major form) (assuming size to be perfect square) to 2D square matrix*/
-vector<vector<float> > changeToSqaure2D(vector<float> col) {
-        vector<vector<float> > matrix;
+vector<vector<float>> changeToSqaure2D(vector<float> col) {
+        vector<vector<float>> matrix;
         int size = (int)(sqrt(col.size()));
         for(int i=0; i<size; i++)
                 matrix.push_back(vector<float>(col.begin()+i*size, col.begin()+(i+1)*size));
@@ -54,19 +54,19 @@ vector<vector<float> > changeToSqaure2D(vector<float> col) {
  First two parameters are kernel and matrix, resp.
  Third for selection between convolution (true) and cross-correlation (false)
  To include padding additional argument 'boolean' shall sumise*/
-vector<vector<float> > convolutionByMultiplication(vector<vector<float> > kernel, vector<vector<float> > matrix, bool convolution, bool padding=false) {
+vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false) {
         if(padding)
                 matrix = pad(matrix, kernel.size()-1);
         vector<float> kernel1D = changeTo1D(kernel);
         if(convolution)
             reverse(kernel1D.begin(), kernel1D.end()); // For convolution instead of cross-correlation
-        vector<vector<float> > toeplitz = convertToToeplitzMatrix(matrix, kernel.size());
+        vector<vector<float>> toeplitz = convertToToeplitzMatrix(matrix, kernel.size());
         vector<float> conv1d = getConvolutionByMultiplication(toeplitz, kernel1D);
         return changeToSqaure2D(conv1d);
 }
 
 /* Print a 2D square matrix */
-void print2DSquareMatrix(vector<vector<float> > c) {
+void print2DSquareMatrix(vector<vector<float>> c) {
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
                         printf("%5.2f ", c[i][j]);
@@ -94,7 +94,7 @@ int main() {
   c = convolutionByMultiplication(a, b, false);
   print2DSquareMatrix(c);
 
-  // Check for conversion to transpose
+  // Check for conversion to invert-transpose
   // print2DSquareMatrix(a);
   // vector<float> test = changeTo1D(a);
   // reverse(test.begin(), test.end());
