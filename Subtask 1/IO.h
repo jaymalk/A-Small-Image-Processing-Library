@@ -65,7 +65,7 @@ using namespace std;
     void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
-                        out << c[i][j] << setw(10) << " ";
+                        out<< setw(8) << c[i][j];
                 out << "\n";
         }
     }
