@@ -3,7 +3,6 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <cassert>
 #include <cmath>
 using namespace std;
 
@@ -85,18 +84,15 @@ using namespace std;
     // OUTPUT
     /* Print/write a 2D square matrix */
     void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
-        for(int i=0; i<c.size(); i++) {
+        for(int i=0; i<c.size(); i++)
                 for(int j=0; j<c[i].size(); j++)
-                        out<< setw(8) << c[i][j];
-                out << "\n";
-        }
+                        out<< c[j][i] << "\n";
     }
 
     /* Print/write a 1D vector */
     void writeVector(vector<float> c, ostream &out = cout) {
         for(int i=0; i<c.size(); i++)
-                out << c[i] << " ";
-        out << "\n";
+                out << c[i] << "\n";
     }
 
 #endif
