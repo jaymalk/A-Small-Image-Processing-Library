@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <sstream>
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -21,12 +20,12 @@ using namespace std;
             string line;
             for(int i=0; i<numRows; i++) {
                 getline(input, line);
-                matrix.push_back(vector<float>{(float)stoi(line)});
+                matrix.push_back(vector<float>{stof(line)});
             }
             for(int j=1; j<numRows; j++)
                 for(int i=0; i<numRows; i++) {
                     getline(input, line);
-                    matrix[i].push_back((float)stoi(line));
+                    matrix[i].push_back(stof(line));
                 }
             if(numRows != matrix.size() || numRows != matrix[0].size())
                 throw runtime_error("Input is not a square matrix.\n");
@@ -48,7 +47,7 @@ using namespace std;
             ifstream input(filename);
             string line;
             while(getline(input, line))
-                temp.push_back((float)stoi(line));
+                temp.push_back(stof(line));
             int size = (int)(sqrt(temp.size()));
             if(size*size != temp.size())
                 throw runtime_error("Input is not a square matrix.\n");
@@ -77,7 +76,7 @@ using namespace std;
             ifstream input(filename);
             string line;
             while(getline(input, line))
-                vctr.push_back((float)stoi(line));
+                vctr.push_back(stof(line));
         }
         catch(...) {
             throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]");
