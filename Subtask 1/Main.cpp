@@ -46,14 +46,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(mapping(kernel, matrix, true));
+                        writeSquareMatrix(directConvolution(kernel, matrix, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
                             ofstream out(argv[3]);
-                            writeSquareMatrix(mapping(kernel, matrix, true), out);
+                            writeSquareMatrix(directConvolution(kernel, matrix, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -85,14 +85,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(mapping(kernel, matrix, true, true));
+                        writeSquareMatrix(directConvolution(kernel, matrix, true, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
                             ofstream out(argv[3]);
-                            writeSquareMatrix(mapping(kernel, matrix, true, true), out);
+                            writeSquareMatrix(directConvolution(kernel, matrix, true, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -205,14 +205,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(mapping(kernel, matrix, false));
+                        writeSquareMatrix(directConvolution(kernel, matrix, false));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
                             ofstream out(argv[3]);
-                            writeSquareMatrix(mapping(kernel, matrix, false), out);
+                            writeSquareMatrix(directConvolution(kernel, matrix, false), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -244,14 +244,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(mapping(kernel, matrix, false, true));
+                        writeSquareMatrix(directConvolution(kernel, matrix, false, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
                             ofstream out(argv[3]);
-                            writeSquareMatrix(mapping(kernel, matrix, false, true), out);
+                            writeSquareMatrix(directConvolution(kernel, matrix, false, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");

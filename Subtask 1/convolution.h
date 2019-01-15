@@ -36,7 +36,7 @@ using namespace std;
         return kernel;
     }
 
-    vector<vector<float>> mapping(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false) {
+    vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false) {
         if(padding)
             matrix = pad(matrix, kernel.size()-1);
         if(convolution)
