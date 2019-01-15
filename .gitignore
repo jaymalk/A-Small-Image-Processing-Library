@@ -36,3 +36,9 @@
 
 # MacOS
 .DS_Store
+
+# Text file test cases
+*.txt
+
+# Generator scripts in python
+*.py

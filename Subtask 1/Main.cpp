@@ -9,7 +9,7 @@
 #include "activation.h"
 #include "pool.h"
 #include "convolution.h"
-#include "IO.h"
+#include "NIO.h"
 
 
 using namespace std;
