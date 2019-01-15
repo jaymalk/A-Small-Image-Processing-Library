@@ -10,6 +10,7 @@
 #include "pool.h"
 #include "convolution.h"
 #include "NIO.h"
+#include "IO.h"
 
 
 using namespace std;
@@ -29,14 +30,14 @@ int main(int argc, char const *argv[]) {
                 if(!strcmp("conv", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -46,14 +47,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(directConvolution(kernel, matrix, true));
+                        printMatrix(directConvolution(kernel, matrix, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(directConvolution(kernel, matrix, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(directConvolution(kernel, matrix, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -68,14 +69,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("conv_pad", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -85,14 +86,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(directConvolution(kernel, matrix, true, true));
+                        printMatrix(directConvolution(kernel, matrix, true, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(directConvolution(kernel, matrix, true, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(directConvolution(kernel, matrix, true, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -106,14 +107,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("conv_mult", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -123,14 +124,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true));
+                        printMatrix(convolutionByMultiplication(kernel, matrix, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(convolutionByMultiplication(kernel, matrix, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -144,14 +145,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("conv_mult_pad", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -161,14 +162,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true, true));
+                        printMatrix(convolutionByMultiplication(kernel, matrix, true, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, true, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(convolutionByMultiplication(kernel, matrix, true, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -188,14 +189,14 @@ int main(int argc, char const *argv[]) {
                 if(!strcmp("cross", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -205,14 +206,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(directConvolution(kernel, matrix, false));
+                        printMatrix(directConvolution(kernel, matrix, false));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(directConvolution(kernel, matrix, false), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(directConvolution(kernel, matrix, false), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -227,14 +228,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("cross_pad", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -244,14 +245,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(directConvolution(kernel, matrix, false, true));
+                        printMatrix(directConvolution(kernel, matrix, false, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(directConvolution(kernel, matrix, false, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(directConvolution(kernel, matrix, false, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -265,14 +266,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("cross_mult", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -282,14 +283,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false));
+                        printMatrix(convolutionByMultiplication(kernel, matrix, false));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(convolutionByMultiplication(kernel, matrix, false), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -303,14 +304,14 @@ int main(int argc, char const *argv[]) {
                 else if(!strcmp("cross_mult_pad", argv[1])) {
                     vector<vector<float>> matrix{};
                     try {
-                        matrix = inputMatrix(argv[2]);
+                        matrix = inputSquareMatrix(argv[2]);
                     }
                     catch(...) {
                         throw runtime_error("Error with matrix file. Please check.\n");
                     }
                     vector<vector<float>> kernel{};
                     try {
-                        kernel = inputMatrix(argv[3]);
+                        kernel = inputSquareMatrix(argv[3]);
                     }
                     catch(...) {
                         throw runtime_error("Error with kernel file. Please check.\n");
@@ -320,14 +321,14 @@ int main(int argc, char const *argv[]) {
                     if(argc == 4)
                     /* Output on command line*/
                     {
-                        writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false, true));
+                        printMatrix(convolutionByMultiplication(kernel, matrix, false, true));
                     }
                     else if (argc == 5)
                     /* Output in File*/
                     {
                         try {
-                            ofstream out(argv[3]);
-                            writeSquareMatrix(convolutionByMultiplication(kernel, matrix, false, true), out);
+                            ofstream out(argv[4]);
+                            writeMatrix(convolutionByMultiplication(kernel, matrix, false, true), out);
                         }
                         catch(...) {
                             throw runtime_error("Error in writing. Please check.\n");
@@ -353,22 +354,25 @@ int main(int argc, char const *argv[]) {
                 throw runtime_error("Invalid Function. Did you mean 'relu'?\n");
             vector<vector<float>> matrix{};
             try {
-                matrix = inputMatrix(argv[2]);
+                matrix = inputMatrix(argv[2], stoi(argv[3]));
+            }
+            catch(const runtime_error& e) {
+                throw e;
             }
             catch(...) {
-                throw runtime_error("Error with matrix file. Please check.\n");
+                throw runtime_error("Error with matrix file or num_rows. Please check.\n");
             }
-            if(argc == 3)
+            if(argc == 4)
             /* Output on command line*/
             {
-                writeSquareMatrix(relu(matrix));
+                printMatrix(relu(matrix));
             }
-            else if (argc == 4)
+            else if (argc == 5)
             /* Output in File*/
             {
                 try {
-                    ofstream out(argv[3]);
-                    writeSquareMatrix(relu(matrix), out);
+                    ofstream out(argv[4]);
+                    writeMatrix(relu(matrix), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -386,22 +390,25 @@ int main(int argc, char const *argv[]) {
                 throw runtime_error("Invalid Function. Did you mean 'tanh'?\n");
             vector<vector<float>> matrix{};
             try {
-                matrix = inputMatrix(argv[2]);
+                matrix = inputMatrix(argv[2], stoi(argv[3]));
+            }
+            catch(const runtime_error& e) {
+                throw e;
             }
             catch(...) {
                 throw runtime_error("Error with matrix file. Please check.\n");
             }
-            if(argc == 3)
+            if(argc == 4)
             /* Output on command line*/
             {
-                writeSquareMatrix(tanh(matrix));
+                printMatrix(tanh(matrix));
             }
-            else if (argc == 4)
+            else if (argc == 5)
             /* Output in File*/
             {
                 try {
-                    ofstream out(argv[3]);
-                    writeSquareMatrix(tanh(matrix), out);
+                    ofstream out(argv[4]);
+                    writeMatrix(tanh(matrix), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -489,7 +496,7 @@ int main(int argc, char const *argv[]) {
                 throw runtime_error("Invalid Function. Did you mean 'max_pool'?\n");
             vector<vector<float>> matrix{};
             try {
-                matrix = inputMatrix(argv[2]);
+                matrix = inputSquareMatrix(argv[2]);
             }
             catch(...) {
                 throw runtime_error("Error with matrix file. Please check.\n");
@@ -500,7 +507,7 @@ int main(int argc, char const *argv[]) {
                 try {
                     int filterSize = stoi(argv[3]);
                     int stride = stoi(argv[4]);
-                    writeSquareMatrix(maxPool(matrix, filterSize, stride));
+                    printMatrix(maxPool(matrix, filterSize, stride));
                 }
                 catch(...) {
                     throw runtime_error("Command statement wrong. Please see documentation.\n");
@@ -513,7 +520,7 @@ int main(int argc, char const *argv[]) {
                     ofstream out(argv[3]);
                     int filterSize = stoi(argv[4]);
                     int stride = stoi(argv[5]);
-                    writeSquareMatrix(maxPool(matrix, filterSize, stride), out);
+                    writeMatrix(maxPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -531,7 +538,7 @@ int main(int argc, char const *argv[]) {
                 throw runtime_error("Invalid Function. Did you mean 'avg_pool'?\n");
             vector<vector<float>> matrix{};
             try {
-                matrix = inputMatrix(argv[2]);
+                matrix = inputSquareMatrix(argv[2]);
             }
             catch(...) {
                 throw runtime_error("Error with matrix file. Please check.\n");
@@ -542,7 +549,7 @@ int main(int argc, char const *argv[]) {
                 try {
                     int filterSize = stoi(argv[3]);
                     int stride = stoi(argv[4]);
-                    writeSquareMatrix(avgPool(matrix, filterSize, stride));
+                    printMatrix(avgPool(matrix, filterSize, stride));
                 }
                 catch(...) {
                     throw runtime_error("Command statement wrong. Please see documentation.\n");
@@ -555,7 +562,7 @@ int main(int argc, char const *argv[]) {
                     ofstream out(argv[3]);
                     int filterSize = stoi(argv[4]);
                     int stride = stoi(argv[5]);
-                    writeSquareMatrix(avgPool(matrix, filterSize, stride), out);
+                    writeMatrix(avgPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -563,6 +570,44 @@ int main(int argc, char const *argv[]) {
             }
             else
                 throw runtime_error("Command statement wrong. Please see documentation.\n");
+        }
+        /*-------------------------------------------------------------
+        -------------------------------------------------------------*/
+        else if (argv[1][0] == 'v')
+        /* view or view_square */
+        {
+            if(!strcmp("view", argv[1]))
+            /* view */
+            {
+                vector<vector<float>> matrix{};
+                try {
+                    matrix = inputMatrix(argv[2], stoi(argv[3]));
+                }
+                catch(const runtime_error& e) {
+                    throw e;
+                }
+                catch(...) {
+                    throw runtime_error("Error with matrix file. Please check.\n");
+                }
+                printMatrix(matrix);
+            }
+            else if(!strcmp("view_square", argv[1]))
+            /* view_square */
+            {
+                vector<vector<float>> matrix{};
+                try {
+                    matrix = inputSquareMatrix(argv[2]);
+                }
+                catch(const runtime_error& e) {
+                    throw e;
+                }
+                catch(...) {
+                    throw runtime_error("Error with matrix file. Please check.\n");
+                }
+                printMatrix(matrix);
+            }
+            else
+                throw runtime_error("Invalid Function. Did you mean 'view' or 'view_square'?\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/

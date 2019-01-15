@@ -2,7 +2,7 @@
 ## Subtask 1
 
 ### Working (Command Line Arguments)
-
+****
 **Convolution**<br>
 
 ```cpp
@@ -43,7 +43,7 @@ Cross-correlation with padding | ```cross_mult_pad```
     vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
     ```
 
-
+****
 **Activation**<br>
 
 ```cpp
@@ -52,8 +52,8 @@ Cross-correlation with padding | ```cross_mult_pad```
 
 - ***relu (Rectified Linear Units)***<br>
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out relu [matrix_file]` <br>
-        Saving on file : `./a.out relu [matrix_file] [output_file]` <br><br>
+        Output on console : `./a.out relu [matrix_file] [num_rows]` <br>
+        Saving on file : `./a.out relu [matrix_file] [num_rows] [output_file]` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
             vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
@@ -61,8 +61,8 @@ Cross-correlation with padding | ```cross_mult_pad```
 
 - ***tanh (Hyperbolic)***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out tanh [matrix_file]` <br>
-        Saving on file : `./a.out tanh [matrix_file] [output_file]` <br><br>
+        Output on console : `./a.out tanh [matrix_file] [num_rows]` <br>
+        Saving on file : `./a.out tanh [matrix_file] [num_rows] [output_file]` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<vector<float>> tanh(<vector<vector<{float, int}>> matrix);
@@ -85,7 +85,7 @@ Cross-correlation with padding | ```cross_mult_pad```
         ```cpp
         vector<float> softmax(vector<float> arr);
         ```
-
+****
 **Pooling**
 ```cpp
     #include "pool.h"
@@ -108,6 +108,16 @@ Cross-correlation with padding | ```cross_mult_pad```
         ```cpp
         vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
         ```
+
+****
+### Additional Functions
+
+###### **Matrix View**  (View the matrix for comparison)<br>
+
+_Command Format_ <br>
+    Matrix :  `./a.out view [filename] [num_rows]` <br>
+    Square Matrix :  `./a.out view_square [filename]`
+
 
 <!-- ### Exceptions
 
