@@ -28,6 +28,11 @@ using namespace std;
                     getline(input, line);
                     matrix[i].push_back((float)stoi(line));
                 }
+            if(numRows != matrix.size() || numRows != matrix[0].size())
+                throw runtime_error("Input is not a square matrix.\n");
+        }
+        catch(const runtime_error& e) {
+            throw e;
         }
         catch(...) {
             throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]\n");
@@ -53,7 +58,7 @@ using namespace std;
                     matrix[i].push_back(temp[j*size+i]);
             }
         }
-        catch(runtime_error& e) {
+        catch(const runtime_error& e) {
             throw e;
         }
         catch(...) {
