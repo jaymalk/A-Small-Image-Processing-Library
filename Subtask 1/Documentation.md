@@ -6,7 +6,6 @@
 **Convolution**<br>
 
 ```cpp
-    #include "padding.h"
     #include "convolution.h"
 ```
 
@@ -36,13 +35,13 @@ Cross-correlation with padding | ```cross_mult_pad```
 - Library (In code)
 
     - Direct Convolution/Cross-correlation
-```cpp
-    vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
-```
-    - Direct Convolution/Cross-correlation
-```cpp
-vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
-```
+    ```cpp
+        vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+    ```
+    - Convolution/Cross-correlation by matrix-multiplication
+    ```cpp
+    vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+    ```
 
 
 **Activation**<br>
