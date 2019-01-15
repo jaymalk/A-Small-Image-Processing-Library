@@ -11,7 +11,7 @@ using namespace std;
     /* Input a matrix from a file.
     The matrix is assumed to be in column major order.
     Number of rows is not a predetermined number. */
-    vector<vector<float>> inputMatrix(string filename) {
+    vector<vector<float>> inputFormattedMatrix(string filename) {
         vector<vector<float>> matrix;
         try {
             ifstream input(filename);
@@ -32,7 +32,7 @@ using namespace std;
             }
         }
         catch(...) {
-
+            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]\n");
         }
         return matrix;
     }
@@ -41,7 +41,7 @@ using namespace std;
         The vector is assumed to be in a single line.
         Size is not known.
     */
-    vector<float> inputVector(string filename) {
+    vector<float> inputFormattedVector(string filename) {
         vector<float> vctr{};
         try {
             ifstream input(filename);
@@ -61,17 +61,18 @@ using namespace std;
 
 
     // OUTPUT
-    /* Print/write a 2D square matrix */
-    void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
+    /* Print a 2D square matrix on terminal*/
+    /* Matrix form */
+    void printMatrix(vector<vector<float>> c, ostream& out=cout) {
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
-                        out<< setw(8) << c[j][i];
+                        out<< setw(15) << c[i][j];
                 out << "\n";
         }
     }
 
     /* Print/write a 1D vector */
-    void writeVector(vector<float> c, ostream &out = cout) {
+    void printVector(vector<float> c, ostream &out = cout) {
         for(int i=0; i<c.size(); i++)
                 out << c[i] << " ";
         out << "\n";

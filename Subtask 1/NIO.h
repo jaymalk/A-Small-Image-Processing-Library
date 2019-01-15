@@ -15,20 +15,20 @@ using namespace std;
     Number of rows is a predetermined number. */
     vector<vector<float>> inputMatrix(string filename, int numRows) {
         vector<vector<float>> matrix;
+        vector<float> temp{};
         try {
             ifstream input(filename);
             string line;
+            while(getline(input, line))
+                temp.push_back(stof(line));
+            int size = (int)(temp.size());
+            if(size%numRows != 0)
+                throw runtime_error("Error in relating num_rows, not a matrix.\n");
             for(int i=0; i<numRows; i++) {
-                getline(input, line);
-                matrix.push_back(vector<float>{stof(line)});
+                matrix.push_back(vector<float>{});
+                for(int j=0; j< (int)(size/numRows); j++)
+                    matrix[i].push_back(temp[j*numRows+i]);
             }
-            for(int j=1; j<numRows; j++)
-                for(int i=0; i<numRows; i++) {
-                    getline(input, line);
-                    matrix[i].push_back(stof(line));
-                }
-            if(numRows != matrix.size() || numRows != matrix[0].size())
-                throw runtime_error("Input is not a square matrix.\n");
         }
         catch(const runtime_error& e) {
             throw e;
@@ -40,7 +40,7 @@ using namespace std;
     }
 
     /* If number of rows is not a predetermined number */
-    vector<vector<float>> inputMatrix(string filename) {
+    vector<vector<float>> inputSquareMatrix(string filename) {
         vector<vector<float>> matrix;
         vector<float> temp{};
         try {
@@ -87,16 +87,16 @@ using namespace std;
 
     // OUTPUT
     /* Print/write a 2D square matrix */
-    void writeSquareMatrix(vector<vector<float>> c, ostream& out=cout) {
-        for(int i=0; i<c.size(); i++)
-                for(int j=0; j<c[i].size(); j++)
-                        out<< c[j][i] << "\n";
+    void writeMatrix(vector<vector<float>> c, ostream& out=cout) {
+        for(int i=0; i<c[0].size(); i++)
+                for(int j=0; j<c.size(); j++)
+                        out << setprecision(14) << c[j][i] << "\n";
     }
 
     /* Print/write a 1D vector */
     void writeVector(vector<float> c, ostream &out = cout) {
         for(int i=0; i<c.size(); i++)
-                out << c[i] << "\n";
+                out << setprecision(14) << c[i] << "\n";
     }
 
 #endif
