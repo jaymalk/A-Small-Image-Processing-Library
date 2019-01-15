@@ -13,7 +13,7 @@ using namespace std;
 
         if(SIZE<=0)
             throw runtime_error("Empty array for sigmoid.");
-        
+
         for(int i=0; i<SIZE; i++)
             arr[i] = 1.0/(1+exp(-1*arr[i]));
 
@@ -40,26 +40,22 @@ using namespace std;
     }
 
     vector<vector<int>> relu(vector<vector<int>> matrix){
-        const int SIZE = matrix.size();
-
-        if(SIZE<=0)
+        if(matrix.size()<=0)
             throw runtime_error("Empty matrix for relu.");
 
-        for(int i=0; i<SIZE; i++)
-            for(int j=0; j<SIZE; j++)
+        for(int i=0; i<matrix.size(); i++)
+            for(int j=0; j<matrix[0].size(); j++)
                 matrix[i][j] = max(0, matrix[i][j]);
 
         return matrix;
     }
 
     vector<vector<float>> relu(vector<vector<float>> matrix){
-        const int SIZE = matrix.size();
-
-        if(SIZE<=0)
+        if(matrix.size()<=0)
             throw runtime_error("Empty matrix for relu.");
 
-        for(int i=0; i<SIZE; i++)
-            for(int j=0; j<SIZE; j++)
+        for(int i=0; i<matrix.size(); i++)
+            for(int j=0; j<matrix[0].size(); j++)
                 matrix[i][j] = max(0.0f, matrix[i][j]);
 
         return matrix;
@@ -74,9 +70,8 @@ using namespace std;
         vector<vector<float>> tanhMatrix(SIZE);              // new matrix due to different data-type of input and output
 
         for(int i=0; i<SIZE; i++){
-            tanhMatrix[i] = vector<float>(SIZE);
-
-            for(int j=0; j<SIZE; j++)
+            tanhMatrix[i] = vector<float>(matrix[0].size());
+            for(int j=0; j<matrix[0].size(); j++)
             tanhMatrix[i][j] = 2.0/(1+exp(-2.0*matrix[i][j])) - 1;
         }
 
@@ -85,13 +80,11 @@ using namespace std;
 
 
     vector<vector<float>> tanh(vector<vector<float>> matrix){
-        const int SIZE = matrix.size();
-
-        if(SIZE<=0)
+        if(matrix.size()<=0)
             throw runtime_error("Empty matrix for tanh.");
-    
-        for(int i=0; i<SIZE; i++)
-            for(int j=0; j<SIZE; j++)
+
+        for(int i=0; i< matrix.size(); i++)
+            for(int j=0; j<matrix[0].size(); j++)
                 matrix[i][j] = 2.0/(1+exp(-2.0*matrix[i][j])) - 1;
 
         return matrix;
