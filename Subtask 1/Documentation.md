@@ -4,6 +4,12 @@
 ### Working (Command Line Arguments)
 
 **Convolution**<br>
+
+```cpp
+    #include "padding.h"
+    #include "convolution.h"
+```
+
 _Command Format_ <br>
 Output on console : `./a.out [fuction] [matrix_file] [kernel_file]` <br>
 Saving on file : `./a.out [fuction] [matrix_file] [kernel_file] [output_file]` <br><br>
@@ -27,14 +33,22 @@ Cross-correlation without padding | ```cross_mult```
 Cross-correlation with padding | ```cross_mult_pad```
 
 
+- Library (In code)
 
+    - Direct Convolution/Cross-correlation
+```cpp
+    vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+```
+    - Direct Convolution/Cross-correlation
+```cpp
+vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+```
 
 
 **Activation**<br>
 
-Library
 ```cpp
-    #include<activation>
+    #include "activation.h"
 ```
 
 - ***relu (Rectified Linear Units)***<br>
@@ -75,7 +89,7 @@ Library
 
 **Pooling**
 ```cpp
-    #include<pool>
+    #include "pool.h"
 ```
 
 - ***Max Pool***<br>
@@ -96,7 +110,7 @@ Library
         vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
         ```
 
-### Exceptions
+<!-- ### Exceptions
 
 Message | Cause
 ------------ | -------------
@@ -104,4 +118,4 @@ _File not found_ | [matrix_file] or [kernel_file] non-existent
 _Size Error_    | Order(kernel) > Order(matrix)
 _Invalid Function_ | Function type is not suitable
 __ |
-_Unknown Error_ | Fault on our side :sweat_smile:
+_Unknown Error_ | Fault on our side :sweat_smile: -->
