@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include <string>
 using namespace std;
 
 /* Another input file to suit the required input parameters */
@@ -19,7 +20,7 @@ using namespace std;
         try {
             ifstream input(filename);
             if(!input.good())
-                throw runtime_error("File doesn't exit or is not readable.\n");
+                throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 temp.push_back(stof(line));
@@ -48,7 +49,7 @@ using namespace std;
         try {
             ifstream input(filename);
             if(!input.good())
-                throw runtime_error("File doesn't exit or is not readable.\n");
+                throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 temp.push_back(stof(line));
@@ -79,13 +80,16 @@ using namespace std;
         try {
             ifstream input(filename);
             if(!input.good())
-                throw runtime_error("File doesn't exit or is not readable.\n");
+                throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 vctr.push_back(stof(line));
         }
+        catch(const runtime_error& e) {
+            throw e;
+        }
         catch(...) {
-            throw runtime_error("Some Problem [File I/O] [Emptry Matrix Returned]");
+            throw runtime_error("Some Problem [File I/O] [Emptry Vector Returned]");
         }
         return vctr;
     }

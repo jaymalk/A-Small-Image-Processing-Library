@@ -32,15 +32,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -71,15 +71,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -109,15 +109,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -147,15 +147,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -191,15 +191,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -230,15 +230,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -268,15 +268,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -306,15 +306,15 @@ int main(int argc, char const *argv[]) {
                     try {
                         matrix = inputSquareMatrix(argv[2]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with matrix file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     vector<vector<float>> kernel{};
                     try {
                         kernel = inputSquareMatrix(argv[3]);
                     }
-                    catch(...) {
-                        throw runtime_error("Error with kernel file. Please check.\n");
+                    catch(const runtime_error& e) {
+                        throw e;
                     }
                     if(kernel.size() > matrix.size())
                         throw runtime_error("Invalid: Kernel size is greater than matrix size.\n");
@@ -395,9 +395,6 @@ int main(int argc, char const *argv[]) {
             catch(const runtime_error& e) {
                 throw e;
             }
-            catch(...) {
-                throw runtime_error("Error with matrix file. Please check.\n");
-            }
             if(argc == 4)
             /* Output on command line*/
             {
@@ -431,6 +428,9 @@ int main(int argc, char const *argv[]) {
                 try {
                     vectr = inputVector(argv[2]);
                 }
+                catch(const runtime_error& e) {
+                    throw e;
+                }
                 catch(...) {
                     throw runtime_error("Error with vector file. Please check.\n");
                 }
@@ -461,6 +461,9 @@ int main(int argc, char const *argv[]) {
                 vector<float> vectr{};
                 try {
                     vectr = inputVector(argv[2]);
+                }
+                catch(const runtime_error& e) {
+                    throw e;
                 }
                 catch(...) {
                     throw runtime_error("Error with vector file. Please check.\n");
@@ -498,8 +501,8 @@ int main(int argc, char const *argv[]) {
             try {
                 matrix = inputSquareMatrix(argv[2]);
             }
-            catch(...) {
-                throw runtime_error("Error with matrix file. Please check.\n");
+            catch(const runtime_error& e) {
+                throw e;
             }
             if(argc == 5)
             /* Output on command line */
@@ -510,7 +513,7 @@ int main(int argc, char const *argv[]) {
                     printMatrix(maxPool(matrix, filterSize, stride));
                 }
                 catch(...) {
-                    throw runtime_error("Command statement wrong. Please see documentation.\n");
+                    throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
             else if(argc == 6)
@@ -523,7 +526,7 @@ int main(int argc, char const *argv[]) {
                     writeMatrix(maxPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
-                    throw runtime_error("Error in writing. Please check.\n");
+                    throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
             else
@@ -540,8 +543,8 @@ int main(int argc, char const *argv[]) {
             try {
                 matrix = inputSquareMatrix(argv[2]);
             }
-            catch(...) {
-                throw runtime_error("Error with matrix file. Please check.\n");
+            catch(const runtime_error& e) {
+                throw e;
             }
             if(argc == 5)
             /* Output on command line */
@@ -552,7 +555,7 @@ int main(int argc, char const *argv[]) {
                     printMatrix(avgPool(matrix, filterSize, stride));
                 }
                 catch(...) {
-                    throw runtime_error("Command statement wrong. Please see documentation.\n");
+                    throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
             else if(argc == 6)
@@ -565,7 +568,7 @@ int main(int argc, char const *argv[]) {
                     writeMatrix(avgPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
-                    throw runtime_error("Error in writing. Please check.\n");
+                    throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
             else
@@ -586,9 +589,6 @@ int main(int argc, char const *argv[]) {
                 catch(const runtime_error& e) {
                     throw e;
                 }
-                catch(...) {
-                    throw runtime_error("Error with matrix file. Please check.\n");
-                }
                 printMatrix(matrix);
             }
             else if(!strcmp("view_square", argv[1]))
@@ -600,9 +600,6 @@ int main(int argc, char const *argv[]) {
                 }
                 catch(const runtime_error& e) {
                     throw e;
-                }
-                catch(...) {
-                    throw runtime_error("Error with matrix file. Please check.\n");
                 }
                 printMatrix(matrix);
             }
