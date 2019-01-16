@@ -23,7 +23,12 @@ using namespace std;
                 throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
-                temp.push_back(stof(line));
+                try {
+                    temp.push_back(stof(line));
+                }
+                catch(...) {
+                    throw runtime_error("Non-float values in file \'"+filename+ "\', please check.\n");
+                }
             int size = (int)(temp.size());
             if(size%numRows != 0)
                 throw runtime_error("Error in relating num_rows, not a matrix.\n");
@@ -52,7 +57,13 @@ using namespace std;
                 throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
-                temp.push_back(stof(line));
+                try {
+                    temp.push_back(stof(line));
+                }
+                catch(...) {
+                    throw runtime_error("Non-float values in file \'"+filename+ "\', please check.\n");
+                }
+
             int size = (int)(sqrt(temp.size()));
             if(size*size != temp.size())
                 throw runtime_error("Input is not a square matrix.\n");
@@ -83,7 +94,13 @@ using namespace std;
                 throw runtime_error("File \'"+filename+ "\' doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
-                vctr.push_back(stof(line));
+                try {
+                    cout << line;
+                    vctr.push_back(stof(line));
+                }
+                catch(...) {
+                    throw runtime_error("Non-float values in file \'"+filename+ "\', please check.\n");
+                }
         }
         catch(const runtime_error& e) {
             throw e;

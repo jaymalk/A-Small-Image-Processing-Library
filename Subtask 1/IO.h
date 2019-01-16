@@ -64,17 +64,20 @@ using namespace std;
     /* Print a 2D square matrix on terminal*/
     /* Matrix form */
     void printMatrix(vector<vector<float>> c, ostream& out=cout) {
+        out << "\n";
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
-                        out<< setw(15) << c[i][j];
+                        out<< setw(15) << setprecision(10) << c[i][j];
                 out << "\n";
         }
+        out << "\n";
     }
 
     /* Print/write a 1D vector */
     void printVector(vector<float> c, ostream &out = cout) {
+        out << "\n";
         for(int i=0; i<c.size(); i++)
-                out << c[i] << " ";
+                out << setprecision(4) << c[i] << "\n";
         out << "\n";
     }
 

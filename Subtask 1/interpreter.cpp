@@ -1,7 +1,3 @@
-/* Main program.
-    Take all inputs from command line.
-    Take actions accordingly
-    */
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -12,10 +8,9 @@
 #include "NIO.h"
 #include "IO.h"
 
-
 using namespace std;
 
-int main(int argc, char const *argv[]) {
+void call(int argc, vector<string> argv) {
     try {
         if(argc == 1)
             throw runtime_error("No function. Please enter a function.\n");
@@ -27,7 +22,7 @@ int main(int argc, char const *argv[]) {
             if(argv[1][1] == 'o')
             /* conv */
             {
-                if(!strcmp("conv", argv[1])) {
+                if("conv" == argv[1]) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -66,7 +61,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("conv_pad", argv[1])) {
+                else if(("conv_pad" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -104,7 +99,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("conv_mult", argv[1])) {
+                else if(("conv_mult" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -142,7 +137,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("conv_mult_pad", argv[1])) {
+                else if(("conv_mult_pad" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -186,7 +181,7 @@ int main(int argc, char const *argv[]) {
             else if(argv[1][1] == 'r')
             /* cross */
             {
-                if(!strcmp("cross", argv[1])) {
+                if(("cross" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -225,7 +220,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("cross_pad", argv[1])) {
+                else if(("cross_pad" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -263,7 +258,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("cross_mult", argv[1])) {
+                else if(("cross_mult" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -301,7 +296,7 @@ int main(int argc, char const *argv[]) {
                 }
 
 
-                else if(!strcmp("cross_mult_pad", argv[1])) {
+                else if(("cross_mult_pad" == argv[1])) {
                     if(argc < 4 || argc > 5)
                         throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
@@ -350,7 +345,7 @@ int main(int argc, char const *argv[]) {
         else if(argv[1][0] == 'r')
         /*relu*/
         {
-            if(strcmp("relu", argv[1]))
+            if(!("relu" == argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'relu'?\n");
             if(argc < 4 || argc > 5)
                 throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -387,7 +382,7 @@ int main(int argc, char const *argv[]) {
         else if(argv[1][0] == 't')
         /*tanh*/
         {
-            if(strcmp("tanh", argv[1]))
+            if(!("tanh" == argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'tanh'?\n");
             if(argc < 4 || argc > 5)
                 throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -423,7 +418,7 @@ int main(int argc, char const *argv[]) {
             if(argv[1][1] == 'o')
             /* softmax */
             {
-                if(strcmp("softmax", argv[1]))
+                if(!("softmax" == argv[1]))
                     throw runtime_error("Invalid Function. Did you mean 'softmax'?\n");
                 if(argc < 3 || argc > 4)
                     throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -440,7 +435,7 @@ int main(int argc, char const *argv[]) {
                 if(argc == 3)
                 /* Output on command line*/
                 {
-                    writeVector(softmax(vectr));
+                    printVector(softmax(vectr));
                 }
                 else
                 /* Output in File*/
@@ -457,7 +452,7 @@ int main(int argc, char const *argv[]) {
             else if(argv[1][1] == 'i')
             /* sigmoid */
             {
-                if(strcmp("sigmoid", argv[1]))
+                if(!("sigmoid" == argv[1]))
                     throw runtime_error("Invalid Function. Did you mean 'sigmoid'?\n");
                 if(argc < 3 || argc > 4)
                     throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -474,7 +469,7 @@ int main(int argc, char const *argv[]) {
                 if(argc == 3)
                 /* Output on command line*/
                 {
-                    writeVector(sigmoid(vectr));
+                    printVector(sigmoid(vectr));
                 }
                 else
                 /* Output in File*/
@@ -496,7 +491,7 @@ int main(int argc, char const *argv[]) {
         else if(argv[1][0] == 'm')
         /* max_pool */
         {
-            if(strcmp("max_pool", argv[1]))
+            if(!("max_pool" == argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'max_pool'?\n");
             if(argc < 5 || argc > 6)
                 throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -538,7 +533,7 @@ int main(int argc, char const *argv[]) {
         else if(argv[1][0] == 'a')
         /* avg_pool */
         {
-            if(strcmp("avg_pool", argv[1]))
+            if(!("avg_pool" == argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'avg_pool'?\n");
             if(argc < 5 || argc > 6)
                 throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
@@ -580,33 +575,38 @@ int main(int argc, char const *argv[]) {
         else if (argv[1][0] == 'v')
         /* view or view_square */
         {
-            if(!strcmp("view", argv[1]))
+            if(("view" == argv[1]))
             /* view */
             {
                 vector<vector<float>> matrix{};
                 try {
+                    if(argc != 4)
+                        throw runtime_error("Command not correct.\n");
+
                     matrix = inputMatrix(argv[2], stoi(argv[3]));
                 }
                 catch(const runtime_error& e) {
                     throw e;
                 }
                 catch(...) {
-                    throw runtime_error("Command not complete.\n");
+                    throw runtime_error("Command not correct.\n");
                 }
                 printMatrix(matrix);
             }
-            else if(!strcmp("view_square", argv[1]))
+            else if(("view_square" == argv[1]))
             /* view_square */
             {
                 vector<vector<float>> matrix{};
                 try {
+                    if(argc != 3)
+                        throw runtime_error("Command not correct.\n");
                     matrix = inputSquareMatrix(argv[2]);
                 }
                 catch(const runtime_error& e) {
                     throw e;
                 }
                 catch(...) {
-                    throw runtime_error("Command not complete.\n");
+                    throw runtime_error("Command not correct.\n");
                 }
                 printMatrix(matrix);
             }
@@ -620,6 +620,39 @@ int main(int argc, char const *argv[]) {
     }
     catch(const exception& e) {
         cout << e.what();
+    }
+}
+
+int main(int argc, char const *argv[]) {
+    string line, word;
+    while(true) {
+        cout << "\n> ";
+        getline(cin, line);
+        if(line == "")
+            continue;
+        istringstream a(line);
+        a >> word;
+        if(word == "exit")
+        /* exit */
+            return 0;
+        else if(word == "clear")
+        /* clear console */
+        {
+            cout << "\033[H\033[J";
+            continue;
+        }
+        /* call */
+        vector<string> argv{"./a.out", word};
+        while(a >> word) {
+            argv.push_back(word);
+        }
+        cout << "\n";
+        try {
+            call(argv.size(), argv);
+        }
+        catch(...) {
+            cout << "Unknown exception.";
+        }
     }
     return 0;
 }
