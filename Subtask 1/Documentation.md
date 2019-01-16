@@ -2,7 +2,7 @@
 ## Subtask 1
 
 ### Working (Command Line Arguments)
-****
+
 **Convolution**<br>
 
 ```cpp
@@ -32,15 +32,18 @@ Cross-correlation without padding | ```cross_mult```
 Cross-correlation with padding | ```cross_mult_pad```
 
 
-- Library (In code)
+_Library (In code)_
 
-    - Direct Convolution/Cross-correlation
-    ```cpp
-        vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
-    ```
-    - Convolution/Cross-correlation by matrix-multiplication
-    ```cpp
-    vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+- Direct Convolution/Cross-correlation
+
+```cpp
+vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
+```
+
+ - Convolution/Cross-correlation by matrix-multiplication
+
+```cpp
+vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
     ```
 
 ****
@@ -56,7 +59,7 @@ Cross-correlation with padding | ```cross_mult_pad```
         Saving on file : `./a.out relu [matrix_file] [num_rows] [output_file]` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
-            vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
+        vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
         ```
 
 - ***tanh (Hyperbolic)***
@@ -95,24 +98,26 @@ Cross-correlation with padding | ```cross_mult_pad```
     - _Command Format_ (On console) <br>
         Output on console : `./a.out max_pool [matrix_file] [filterSize] [stride]` <br>
         Saving on file : `./a.out max_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
-    -  _Library_ (In code)<br>
-        ```cpp
-            vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
-        ```
+    -  _Library_ (In code)
+
+```cpp
+vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
+```
 
 - ***Average Pool***
     - _Command Format_ (On console) <br>
         Output on console : `./a.out avg_pool [matrix_file] [filterSize] [stride]` <br>
         Saving on file : `./a.out avg_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
-    -  _Library_ (In code)<br>
-        ```cpp
-        vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
-        ```
+    -  _Library_ (In code)
+
+```cpp
+vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
+```
 
 ****
 ### Additional Functions
 
-###### **Matrix View**  (View the matrix for comparison)<br>
+##### **Matrix View**  (View the matrix for comparison)<br>
 
 _Command Format_ <br>
     Matrix :  `./a.out view [filename] [num_rows]` <br>

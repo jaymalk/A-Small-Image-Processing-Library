@@ -28,6 +28,8 @@ int main(int argc, char const *argv[]) {
             /* conv */
             {
                 if(!strcmp("conv", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -49,7 +51,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(directConvolution(kernel, matrix, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -60,13 +62,13 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
 
                 }
 
 
                 else if(!strcmp("conv_pad", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -88,7 +90,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(directConvolution(kernel, matrix, true, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -99,12 +101,12 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
                 else if(!strcmp("conv_mult", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -126,7 +128,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(convolutionByMultiplication(kernel, matrix, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -137,12 +139,12 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
                 else if(!strcmp("conv_mult_pad", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -164,7 +166,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(convolutionByMultiplication(kernel, matrix, true, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -175,8 +177,6 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
@@ -187,6 +187,8 @@ int main(int argc, char const *argv[]) {
             /* cross */
             {
                 if(!strcmp("cross", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -208,7 +210,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(directConvolution(kernel, matrix, false));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -219,13 +221,13 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
 
                 }
 
 
                 else if(!strcmp("cross_pad", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -247,7 +249,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(directConvolution(kernel, matrix, false, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -258,12 +260,12 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
                 else if(!strcmp("cross_mult", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -285,7 +287,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(convolutionByMultiplication(kernel, matrix, false));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -296,12 +298,12 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
                 else if(!strcmp("cross_mult_pad", argv[1])) {
+                    if(argc < 4 || argc > 5)
+                        throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                     vector<vector<float>> matrix{};
                     try {
                         matrix = inputSquareMatrix(argv[2]);
@@ -323,7 +325,7 @@ int main(int argc, char const *argv[]) {
                     {
                         printMatrix(convolutionByMultiplication(kernel, matrix, false, true));
                     }
-                    else if (argc == 5)
+                    else
                     /* Output in File*/
                     {
                         try {
@@ -334,8 +336,6 @@ int main(int argc, char const *argv[]) {
                             throw runtime_error("Error in writing. Please check.\n");
                         }
                     }
-                    else
-                        throw runtime_error("Command statement wrong. Please see documentation.\n");
                 }
 
 
@@ -352,6 +352,8 @@ int main(int argc, char const *argv[]) {
         {
             if(strcmp("relu", argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'relu'?\n");
+            if(argc < 4 || argc > 5)
+                throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
             vector<vector<float>> matrix{};
             try {
                 matrix = inputMatrix(argv[2], stoi(argv[3]));
@@ -367,7 +369,7 @@ int main(int argc, char const *argv[]) {
             {
                 printMatrix(relu(matrix));
             }
-            else if (argc == 5)
+            else
             /* Output in File*/
             {
                 try {
@@ -378,8 +380,7 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing. Please check.\n");
                 }
             }
-            else
-                throw runtime_error("Command statement wrong. Please see documentation.\n");
+
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -388,6 +389,8 @@ int main(int argc, char const *argv[]) {
         {
             if(strcmp("tanh", argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'tanh'?\n");
+            if(argc < 4 || argc > 5)
+                throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
             vector<vector<float>> matrix{};
             try {
                 matrix = inputMatrix(argv[2], stoi(argv[3]));
@@ -400,7 +403,7 @@ int main(int argc, char const *argv[]) {
             {
                 printMatrix(tanh(matrix));
             }
-            else if (argc == 5)
+            else
             /* Output in File*/
             {
                 try {
@@ -411,8 +414,6 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing. Please check.\n");
                 }
             }
-            else
-                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -424,6 +425,8 @@ int main(int argc, char const *argv[]) {
             {
                 if(strcmp("softmax", argv[1]))
                     throw runtime_error("Invalid Function. Did you mean 'softmax'?\n");
+                if(argc < 3 || argc > 4)
+                    throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                 vector<float> vectr{};
                 try {
                     vectr = inputVector(argv[2]);
@@ -439,7 +442,7 @@ int main(int argc, char const *argv[]) {
                 {
                     writeVector(softmax(vectr));
                 }
-                else if (argc == 4)
+                else
                 /* Output in File*/
                 {
                     try {
@@ -450,14 +453,14 @@ int main(int argc, char const *argv[]) {
                         throw runtime_error("Error in writing. Please check.\n");
                     }
                 }
-                else
-                    throw runtime_error("Command statement wrong. Please see documentation.\n");
             }
             else if(argv[1][1] == 'i')
             /* sigmoid */
             {
                 if(strcmp("sigmoid", argv[1]))
                     throw runtime_error("Invalid Function. Did you mean 'sigmoid'?\n");
+                if(argc < 3 || argc > 4)
+                    throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
                 vector<float> vectr{};
                 try {
                     vectr = inputVector(argv[2]);
@@ -473,7 +476,7 @@ int main(int argc, char const *argv[]) {
                 {
                     writeVector(sigmoid(vectr));
                 }
-                else if (argc == 4)
+                else
                 /* Output in File*/
                 {
                     try {
@@ -484,8 +487,6 @@ int main(int argc, char const *argv[]) {
                         throw runtime_error("Error in writing. Please check.\n");
                     }
                 }
-                else
-                    throw runtime_error("Command statement wrong. Please see documentation.\n");
             }
             else
                 throw runtime_error("Invalid Function. Did you mean 'sigmoid' or 'softmax'?\n");
@@ -497,6 +498,8 @@ int main(int argc, char const *argv[]) {
         {
             if(strcmp("max_pool", argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'max_pool'?\n");
+            if(argc < 5 || argc > 6)
+                throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
             vector<vector<float>> matrix{};
             try {
                 matrix = inputSquareMatrix(argv[2]);
@@ -516,7 +519,7 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
-            else if(argc == 6)
+            else
             /* Output in a file */
             {
                 try {
@@ -529,8 +532,6 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
-            else
-                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -539,6 +540,8 @@ int main(int argc, char const *argv[]) {
         {
             if(strcmp("avg_pool", argv[1]))
                 throw runtime_error("Invalid Function. Did you mean 'avg_pool'?\n");
+            if(argc < 5 || argc > 6)
+                throw runtime_error("Command statement wrong/incomplete. Please see documentation.\n");
             vector<vector<float>> matrix{};
             try {
                 matrix = inputSquareMatrix(argv[2]);
@@ -558,7 +561,7 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
-            else if(argc == 6)
+            else
             /* Output in a file */
             {
                 try {
@@ -571,8 +574,6 @@ int main(int argc, char const *argv[]) {
                     throw runtime_error("Error in writing (probably stride or filter). Please check.\n");
                 }
             }
-            else
-                throw runtime_error("Command statement wrong. Please see documentation.\n");
         }
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
