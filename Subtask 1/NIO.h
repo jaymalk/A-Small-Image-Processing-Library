@@ -18,6 +18,8 @@ using namespace std;
         vector<float> temp{};
         try {
             ifstream input(filename);
+            if(!input.good())
+                throw runtime_error("File doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 temp.push_back(stof(line));
@@ -45,6 +47,8 @@ using namespace std;
         vector<float> temp{};
         try {
             ifstream input(filename);
+            if(!input.good())
+                throw runtime_error("File doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 temp.push_back(stof(line));
@@ -74,6 +78,8 @@ using namespace std;
         vector<float> vctr{};
         try {
             ifstream input(filename);
+            if(!input.good())
+                throw runtime_error("File doesn't exit or is not readable.\n");
             string line;
             while(getline(input, line))
                 vctr.push_back(stof(line));
