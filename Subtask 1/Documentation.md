@@ -1,7 +1,11 @@
 # Documentation
 ## Subtask 1
 
-### Working (Command Line Arguments)
+### Actions
+  - [Command Line Arguments](#command-line-arguments)
+  - [Interpreter Arguments](#interpreter-arguments)
+
+### Command Line Arguments
 
 **Convolution**<br>
 
@@ -44,9 +48,9 @@ vector<vector<float>> directConvolution(vector<vector<float>> kernel, vector<vec
 
 ```cpp
 vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false)
-    ```
+```
 
-****
+
 **Activation**<br>
 
 ```cpp
@@ -88,7 +92,7 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
         ```cpp
         vector<float> softmax(vector<float> arr);
         ```
-****
+
 **Pooling**
 ```cpp
     #include "pool.h"
@@ -114,7 +118,12 @@ vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int fi
 vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
 ```
 
-****
+
+### Interpreter Arguments
+   We have also provided for another aproach, where the user can enter a interpreter (basic) where the user can take commands in a continous fashion <br>
+   All commands defined above follow (just skip ` ./a.out`
+    ), except for one constraint that arrow keys must not be pressed
+
 ### Additional Functions
 
 ##### **Matrix View**  (View the matrix for comparison)<br>
@@ -124,12 +133,3 @@ _Command Format_ <br>
     Square Matrix :  `./a.out view_square [filename]`
 
 
-<!-- ### Exceptions
-
-Message | Cause
------------- | -------------
-_File not found_ | [matrix_file] or [kernel_file] non-existent
-_Size Error_    | Order(kernel) > Order(matrix)
-_Invalid Function_ | Function type is not suitable
-__ |
-_Unknown Error_ | Fault on our side :sweat_smile: -->
