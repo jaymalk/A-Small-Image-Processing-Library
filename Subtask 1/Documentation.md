@@ -71,7 +71,8 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
     #include "activation.h"
 ```
 
-- ***relu (Rectified Linear Units)***<br>
+
+- ***relu (Rectified Linear Units)***
     - _Command Format_ (On console) <br>
         Output on console > ` relu matrix_file num_rows` <br>
         Saving on file > ` relu matrix_file num_rows output_file` <br><br>
