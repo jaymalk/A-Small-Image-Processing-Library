@@ -590,6 +590,9 @@ int main(int argc, char const *argv[]) {
                 catch(const runtime_error& e) {
                     throw e;
                 }
+                catch(...) {
+                    throw runtime_error("Command not complete.\n");
+                }
                 printMatrix(matrix);
             }
             else if(!strcmp("view_square", argv[1]))
@@ -601,6 +604,9 @@ int main(int argc, char const *argv[]) {
                 }
                 catch(const runtime_error& e) {
                     throw e;
+                }
+                catch(...) {
+                    throw runtime_error("Command not complete.\n");
                 }
                 printMatrix(matrix);
             }
