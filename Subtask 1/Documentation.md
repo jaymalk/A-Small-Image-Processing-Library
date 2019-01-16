@@ -1,21 +1,26 @@
-# Documentation
-## Subtask 1
-
-### Actions
+# Subtask 1
+<br>
+#### Overview
   - [Command Line Arguments](#command-line-arguments)
+    -   [Convolution](#convolution)
+    -   [Activation](#activation)
+    -   [Pooling](#pooling)
   - [Interpreter Arguments](#interpreter-arguments)
+  - [Other Helpful Functions](#other-helpful-functions)
 
-### Command Line Arguments
+<br><br>
+## Command Line Arguments
 
-**Convolution**<br>
+#### Convolution
 
 ```cpp
     #include "convolution.h"
 ```
 
 _Command Format_ <br>
-Output on console : `./a.out [fuction] [matrix_file] [kernel_file]` <br>
-Saving on file : `./a.out [fuction] [matrix_file] [kernel_file] [output_file]` <br><br>
+Output on console : `./a.out function matrix_file kernel_file` <br>
+Saving on file : `./a.out function matrix_file kernel_file output_file` <br><br>
+
 - Direct convolution
 
 Task | Function
@@ -51,7 +56,7 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 ```
 
 
-**Activation**<br>
+### Activation
 
 ```cpp
     #include "activation.h"
@@ -59,8 +64,8 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 
 - ***relu (Rectified Linear Units)***<br>
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out relu [matrix_file] [num_rows]` <br>
-        Saving on file : `./a.out relu [matrix_file] [num_rows] [output_file]` <br><br>
+        Output on console : `./a.out relu matrix_file num_rows` <br>
+        Saving on file : `./a.out relu matrix_file num_rows output_file` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<vector<float>> relu(<vector<vector<{float, int}>> matrix);
@@ -68,8 +73,8 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 
 - ***tanh (Hyperbolic)***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out tanh [matrix_file] [num_rows]` <br>
-        Saving on file : `./a.out tanh [matrix_file] [num_rows] [output_file]` <br><br>
+        Output on console : `./a.out tanh matrix_file num_rows` <br>
+        Saving on file : `./a.out tanh matrix_file num_rows output_file` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<vector<float>> tanh(<vector<vector<{float, int}>> matrix);
@@ -77,8 +82,8 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 
 - ***Sigmoid***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out sigmoid [vector_file]` <br>
-        Saving on file : `./a.out sigmoid [vector_file] [output_file]` <br><br>
+        Output on console : `./a.out sigmoid vector_file` <br>
+        Saving on file : `./a.out sigmoid vector_file output_file` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<float> sigmoid(vector<float> arr);
@@ -86,22 +91,22 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 
 - ***Softmax***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out softmax [vector_file]` <br>
-        Saving on file : `./a.out softmax [vector_file] [output_file]` <br><br>
+        Output on console : `./a.out softmax vector_file` <br>
+        Saving on file : `./a.out softmax vector_file output_file` <br><br>
     -  _Library_ (In code)<br>
         ```cpp
         vector<float> softmax(vector<float> arr);
         ```
 
-**Pooling**
+### Pooling
 ```cpp
     #include "pool.h"
 ```
 
 - ***Max Pool***<br>
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out max_pool [matrix_file] [filterSize] [stride]` <br>
-        Saving on file : `./a.out max_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
+        Output on console : `./a.out max_pool matrix_file filter_size stride` <br>
+        Saving on file : `./a.out max_pool matrix_file output_file filter_size stride` <br><br>
     -  _Library_ (In code)
 
 ```cpp
@@ -110,26 +115,28 @@ vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int fi
 
 - ***Average Pool***
     - _Command Format_ (On console) <br>
-        Output on console : `./a.out avg_pool [matrix_file] [filterSize] [stride]` <br>
-        Saving on file : `./a.out avg_pool [matrix_file] [output_file] [filterSize] [stride]` <br><br>
+        Output on console : `./a.out avg_pool matrix_file filter_size stride` <br>
+        Saving on file : `./a.out avg_pool matrix_file output_file filter_size stride` <br><br>
     -  _Library_ (In code)
 
 ```cpp
 vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
 ```
 
+<br><br>
+## Interpreter Arguments
+We have also provided for another aproach, where the user can enter a interpreter (basic) where the user can take commands in a continous fashion <br>
 
-### Interpreter Arguments
-   We have also provided for another aproach, where the user can enter a interpreter (basic) where the user can take commands in a continous fashion <br>
-   All commands defined above follow (just skip ` ./a.out`
-    ), except for one constraint that arrow keys must not be pressed
+All commands defined above follow (just skip ` ./a.out` ), except for one constraint that ***arrow keys must not be pressed***<br>
 
-### Additional Functions
+To enter the interpreter type `ipl` and just type `exit` to exit.
+
+<br><br>
+
+## Other Helpful Functions
 
 ##### **Matrix View**  (View the matrix for comparison)<br>
 
 _Command Format_ <br>
-    Matrix :  `./a.out view [filename] [num_rows]` <br>
-    Square Matrix :  `./a.out view_square [filename]`
-
-
+    Matrix :  `./a.out view filename num_rows` <br>
+    Square Matrix :  `./a.out view_square filename`
