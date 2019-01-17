@@ -66,7 +66,7 @@ using namespace std;
 
             int size = (int)(sqrt(temp.size()));
             if(size*size != temp.size())
-                throw runtime_error("Input is not a square matrix.\n");
+                throw runtime_error("Input file- \'"+filename+"\' is not a square matrix.\n");
             for(int i=0; i<size; i++) {
                 matrix.push_back(vector<float>{});
                 for(int j=0; j<size; j++)

@@ -17,7 +17,7 @@ using namespace std;
         for(int i=0; i<SIZE; i++){
             if(arr[i] < -50)
                 arr[i] = 0;
-            else if(arr[i>50])
+            else if(arr[i] > 50)
                 arr[i] = 1;
             else    
                 arr[i] = 1.0/(1+exp(-1*arr[i]));
