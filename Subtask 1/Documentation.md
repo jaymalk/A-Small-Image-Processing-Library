@@ -16,7 +16,7 @@ We have used the aproach where the user can enter a interpreter (basic) and prov
 
 All commands defined bellow follow , except for one constraint that *arrow keys must not be pressed*<br>
 
-To enter the interpreter type `ipl` and just type `exit` to exit. Also, `clear` can be used to clear the screen.
+To enter the interpreter type `./ipl` and just type `exit` to exit. Also, `clear` can be used to clear the screen.
 
 <br><br>
 
