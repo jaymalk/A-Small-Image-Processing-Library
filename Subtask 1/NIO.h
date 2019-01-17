@@ -95,7 +95,6 @@ using namespace std;
             string line;
             while(getline(input, line))
                 try {
-                    cout << line;
                     vctr.push_back(stof(line));
                 }
                 catch(...) {
