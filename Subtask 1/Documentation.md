@@ -7,6 +7,8 @@
     -   [Activation](#activation)
     -   [Pooling](#pooling)
   - [Other Helpful Functions](#other-helpful-functions)
+      - [Matrix View](#matrix-view)
+      - [Save Previous](#save-previous)
 
 <br><br>
 
@@ -17,6 +19,8 @@ We have used the approach where the user can enter a interpreter (basic) and pro
 All commands defined below follow , except for one constraint that *arrow keys must not be pressed*<br>
 
 To enter the interpreter type `./ipl` and just type `exit` to exit. Also, `clear` can be used to clear the screen.
+
+Also, `...` can be use to [repeat/augment](#save-previous) last command.
 
 <br><br>
 
@@ -116,7 +120,7 @@ vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, 
 - ***Max Pool***<br>
     - _Command Format_ (On console) <br>
         Output on console > ` max_pool matrix_file filter_size stride` <br>
-        Saving on file > ` max_pool matrix_file output_file filter_size stride` <br><br>
+        Saving on file > ` max_pool matrix_file filter_size stride output_file` <br><br>
     -  _Library_ (In code)
 
 ```cpp
@@ -126,7 +130,7 @@ vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int fi
 - ***Average Pool***
     - _Command Format_ (On console) <br>
         Output on console > ` avg_pool matrix_file filter_size stride` <br>
-        Saving on file > ` avg_pool matrix_file output_file filter_size stride` <br><br>
+        Saving on file > ` avg_pool matrix_file filter_size stride output_file` <br><br>
     -  _Library_ (In code)
 
 ```cpp
@@ -137,7 +141,9 @@ vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int fi
 
 ## Other Helpful Functions
 
-- #####  **Matrix View**  (View the matrix for comparison)<br>
+#### Matrix View
+
+_To view the result in a formatted form on the console. Just for a review._
 
 _Command Format_ <br>
     Matrix  > ` view filename num_rows` <br>
@@ -145,11 +151,10 @@ _Command Format_ <br>
 
 <br>
 
-- ##### **Save Output**  (Save the 'output on console' of previous command to a file)<br>
+####Save Previous
 
-_Command Format_ <br>
+_To augment the previous command (output on console) and saving the output to a file_
 
-` ... output_file` <br>
-e.g.<br> > ```conv matrix_225.txt matrix_25.txt```<br>
-_This will output a matrix of size 11X11 on the console, to save the output of this command in a file called 'out.txt' execute the following command_ <br> >``` ... out.txt```
-
+_Command Format_ -
+    To repeat last command  >  `...` <br>
+    To augment last command (save only) > `... output_file`

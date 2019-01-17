@@ -12,7 +12,7 @@ using namespace std;
 
 void call(int argc, vector<string> argv) {
     try {
-        if(argc == 1)
+        if(argc <= 1)
             throw runtime_error("No function. Please enter a function.\n");
         /*-------------------------------------------------------------
         -------------------------------------------------------------*/
@@ -518,9 +518,9 @@ void call(int argc, vector<string> argv) {
             /* Output in a file */
             {
                 try {
-                    ofstream out(argv[3]);
-                    int filterSize = stoi(argv[4]);
-                    int stride = stoi(argv[5]);
+                    ofstream out(argv[5]);
+                    int filterSize = stoi(argv[3]);
+                    int stride = stoi(argv[4]);
                     writeMatrix(maxPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
@@ -560,9 +560,9 @@ void call(int argc, vector<string> argv) {
             /* Output in a file */
             {
                 try {
-                    ofstream out(argv[3]);
-                    int filterSize = stoi(argv[4]);
-                    int stride = stoi(argv[5]);
+                    ofstream out(argv[5]);
+                    int filterSize = stoi(argv[3]);
+                    int stride = stoi(argv[4]);
                     writeMatrix(avgPool(matrix, filterSize, stride), out);
                 }
                 catch(...) {
@@ -646,7 +646,8 @@ int main(int argc, char const *argv[]) {
         /* call history */
         {
             a >> word;
-            history.push_back(word);
+            if("..." != word)
+                history.push_back(word);
             call(history.size(), history);
             continue;
         }
