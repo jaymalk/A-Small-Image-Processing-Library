@@ -45,3 +45,6 @@
 
 # For ignoring interpreter
 ipl
+
+#Ignore zip
+2017CS5*
