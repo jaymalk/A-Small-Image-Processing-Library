@@ -12,9 +12,9 @@
 
 ## Command Line Arguments
 
-We have used the aproach where the user can enter a interpreter (basic) and provide commands in a continous way. <br>
+We have used the approach where the user can enter a interpreter (basic) and provide commands in a continous way. <br>
 
-All commands defined bellow follow , except for one constraint that *arrow keys must not be pressed*<br>
+All commands defined below follow , except for one constraint that *arrow keys must not be pressed*<br>
 
 To enter the interpreter type `./ipl` and just type `exit` to exit. Also, `clear` can be used to clear the screen.
 
