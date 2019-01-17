@@ -14,9 +14,14 @@ using namespace std;
         if(SIZE<=0)
             throw runtime_error("Empty array for sigmoid.");
 
-        for(int i=0; i<SIZE; i++)
-            arr[i] = 1.0/(1+exp(-1*arr[i]));
-
+        for(int i=0; i<SIZE; i++){
+            if(arr[i] < -50)
+                arr[i] = 0;
+            else if(arr[i>50])
+                arr[i] = 1;
+            else    
+                arr[i] = 1.0/(1+exp(-1*arr[i]));
+        }
         return arr;
     }
 
