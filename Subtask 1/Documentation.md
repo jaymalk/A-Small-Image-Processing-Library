@@ -155,6 +155,6 @@ _Command Format_ <br>
 
 _To augment the previous command (output on console) and saving the output to a file_
 
-_Command Format_ -
+_Command Format_ <br>
     To repeat last command  >  `...` <br>
     To augment last command (save only) > `... output_file`
