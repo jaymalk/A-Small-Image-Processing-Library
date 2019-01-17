@@ -13,7 +13,7 @@ using namespace std;
             throw runtime_error("Invalid filter size for pooling.");
         if(stride <= 0)
             throw runtime_error("Invalid stride size for pooling");
-        if(stride >= filterSize)
+        if(stride > filterSize)
             cout << "\n\n -- Stride is greater than filter size, data was lost --\n\n";
 
         const int SIZE = matrix.size();
@@ -60,7 +60,7 @@ using namespace std;
             throw runtime_error("Invalid filter size for pooling.");
         if(stride <= 0)
             throw runtime_error("Invalid stride for pooling.");
-        if(stride >= filterSize)
+        if(stride > filterSize)
             cout << "\n\n -- Stride is greater than filter size, data was lost --\n\n";
 
         const int SIZE = matrix.size();
@@ -106,7 +106,7 @@ using namespace std;
             throw "Invalid filter size for pooling.";
         if(stride <= 0)
             throw "Invalid stride for pooling.";
-        if(stride >= filterSize)
+        if(stride > filterSize)
             cout << "\n\n -- Stride is greater than filter size, data was lost --\n\n";
 
         const int SIZE = matrix.size();

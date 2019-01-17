@@ -137,8 +137,19 @@ vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int fi
 
 ## Other Helpful Functions
 
-##### **Matrix View**  (View the matrix for comparison)<br>
+- #####  **Matrix View**  (View the matrix for comparison)<br>
 
 _Command Format_ <br>
     Matrix  > ` view filename num_rows` <br>
     Square Matrix  > ` view_square filename`
+
+<br>
+
+- ##### **Save Output**  (Save the 'output on console' of previous command to a file)<br>
+
+_Command Format_ <br>
+
+` ... output_file` <br>
+e.g.<br> > ```conv matrix_225.txt matrix_25.txt```<br>
+_This will output a matrix of size 11X11 on the console, to save the output of this command in a file called 'out.txt' execute the following command_ <br> >``` ... out.txt```
+
