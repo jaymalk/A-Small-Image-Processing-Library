@@ -625,6 +625,7 @@ void call(int argc, vector<string> argv) {
 
 int main(int argc, char const *argv[]) {
     string line, word;
+    vector<string> history{};
     while(true) {
         cout << "\n> ";
         getline(cin, line);
@@ -641,11 +642,20 @@ int main(int argc, char const *argv[]) {
             cout << "\033[H\033[J";
             continue;
         }
+        else if(word == "...")
+        /* call history */
+        {
+            a >> word;
+            history.push_back(word);
+            call(history.size(), history);
+            continue;
+        }
         /* call */
         vector<string> argv{"./a.out", word};
         while(a >> word) {
             argv.push_back(word);
         }
+        history = argv;
         cout << "\n";
         try {
             call(argv.size(), argv);
