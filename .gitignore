@@ -42,3 +42,6 @@
 
 # Generator scripts in python
 *.py
+
+# For ignoring interpreter
+ipl
