@@ -1,5 +1,5 @@
 /*
-   Multiplying a n*n Matrix with n*1 kernel1D using threading
+   Multiplying a n*m Matrix with m*1 kernel1D using threading
  */
 
 #include <iostream>
@@ -11,57 +11,63 @@
 
 using namespace std;
 
+vector<vector<float>> matrix;
+vector<float> vctor;
+vector<float> prod;
 
-struct arg {
-        vector<float> row;
-        vector<float> kernel1D;
-        float val;
+void *newmult(void *pass) {
+    int* i = (int *)pass;
 
-        arg(vector<float> row, vector<float> kernel1D) {
-                this->row = row;
-                this->kernel1D = kernel1D;
-                this->val = 0.0f;
-        }
-};
+    int a = *(i);
+    int b = *(i+1);
 
-void *mult(void *pass) {
-        arg* row = (arg*)pass;
+    for(int k = a; k<b; k++) {
+        for(int j=0; j<vctor.size(); j++)
+            prod[k] += (matrix[k][j] * vctor[j]);
+    }
 
-        for(int i=0; i<(row->row.size()); i++) {
-                row->val += ((row->row[i]) * (row->kernel1D[i]));
-        }
-
-        return NULL;
+    return NULL;
 }
 
-vector<float> multiply(vector<vector<float> > matrixToep, vector<float> kernel1D) {
+void multiplyThreaded(int no_threads=6) {
 
-        arg *row[matrixToep.size()];
-        for(int i=0; i<matrixToep.size(); i++)
-                row[i] = new arg(matrixToep[i], kernel1D);
+        pthread_t p[no_threads];
 
-        pthread_t p[matrixToep.size()];
-        for(int i=0; i<matrixToep.size(); i++)
-                pthread_create(p+i, NULL, mult, (void *)(row[i]));
+        int ms = matrix.size(), n = no_threads;
 
-        for(int i=0; i<matrixToep.size(); i++)
-                pthread_join(p[i], NULL);
+        int a[n][2], s = 0, e = ms/n, add = ms/n;
+        for(int i=0; i<n; i++) {
+            a[i][0] = s;
+            a[i][1] = e;
+            s = e;
+            e += add;
+        }
+        a[n-1][1] = ms;
 
-        vector<float> prod{};
-        for(int i=0; i<matrixToep.size(); i++)
-                prod.push_back(row[i]->val);
-        return prod;
+        for(int i=0; i<n; i++)
+            pthread_create(p+i, NULL, newmult, (void *)a[i]);
+
+        for(pthread_t pt:p)
+            pthread_join(pt, NULL);
+
 }
 
 int main(int argc, char** argv) {
+        int n = stoi(argv[1]);
+        int m = stoi(argv[2]);
 
-        vector<vector<float>> matrixToep = inputSquareMatrix(argv[1]);
-        vector<float> kernel1D = inputVector(argv[2]);
-        if(matrixToep.size() != kernel1D.size()) {
-            cout << "Error: Files are wrong.";
-            exit(0);
-        }
-        printVector(multiply(matrixToep, kernel1D));
+        matrix = inputMatrix("f/size_"+to_string(n*m)+".txt", n);
+
+        vctor = inputVector("f/size_"+to_string(m)+".txt");
+
+        prod = vector<float>(n, 0);
+
+        if(argc == 4)
+            multiplyThreaded(stoi(argv[3]));
+        else
+            multiplyThreaded();
+
+        printVector(prod);
 
         return 0;
 }
