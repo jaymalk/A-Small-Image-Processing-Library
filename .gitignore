@@ -48,3 +48,6 @@ ipl
 
 #Ignore zip
 2017CS5*
+
+#Ignore pdf
+*.pdf
