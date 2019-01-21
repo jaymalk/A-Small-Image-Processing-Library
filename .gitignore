@@ -51,3 +51,9 @@ ipl
 
 #Ignore pdf
 *.pdf
+
+#Ignore binary files
+*.o
+
+#Ignore Openblas on ubuntu
+Subtask\ 2/OpenBLAS-0.2.20/
