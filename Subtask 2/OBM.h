@@ -1,4 +1,4 @@
-//g++ test.cpp -I /include/ -L/lib/ -lopenblas -lpthread
+//g++ open_blas_measure.cpp -I /include/ -L/lib/ -lopenblas -lpthread
 // #include <cblas.h>
 #include <stdio.h>
 #include <iostream>
