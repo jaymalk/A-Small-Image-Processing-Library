@@ -25,24 +25,4 @@ void call_open_blas(double *A, int rowA, double *B, int colB, int commonSide, do
     dgemm_(&t, &t, &rowA, &colB, &commonSide, &alpha, A, &rowA, B, &commonSide, &beta, C, &rowA);
 }
 
-// int main()
-// {
-//     int i=0;
-//     double A[6] = {1.0,2.0,1.0,-3.0,4.0,-1.0};
-//     double B[6] = {1.0,2.0,1.0,-3.0,4.0,-1.0};
-//     double C[9] = {.5,.5,.5,.5,.5,.5,.5,.5,.5};
-//     char t = 'N';
-//     int rowA = 3;
-//     int commonSide = 2;
-//     int colB = 3;
-//     double alpha =1.0;
-//     double beta = 0.0;
-//
-//     dgemm_(&t, &t, &rowA, &colB, &commonSide, &alpha, A, &rowA, B, &commonSide, &beta, C, &rowA);
-//
-//     for(i=0; i<9; i++)
-//         printf("%lf ", C[i]);
-//     printf("\n");
-// }
-
 #endif
