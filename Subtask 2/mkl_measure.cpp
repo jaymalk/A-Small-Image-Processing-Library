@@ -14,7 +14,7 @@ int main() {
     ofstream  out("Data/mkl.txt");
     out << "Time\n\n";
 
-    for(int i=3; i<=400; i++) {
+    for(int i=3; i<=800; i++) {
         A = convertToArray(inputSquareMatrix("files/size_"+to_string(i*i)+".txt"));
         B =  convertToArray(inputVector("files/size_"+to_string(i)+".txt"));
         C = convertToArray(vector<float>(i, 0));
