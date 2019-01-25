@@ -38,7 +38,10 @@
 .DS_Store
 
 # Text file test cases
-Subtask\ 2/files/
+*.txt
+!open_blas.txt
+!mkl.txt
+!our.txt
 
 # Generator scripts in python
 *.py

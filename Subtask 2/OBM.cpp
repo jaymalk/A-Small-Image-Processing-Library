@@ -13,10 +13,10 @@ extern "C"{
 
 /* Assuming row major order of matrices.
 
-    This function is used to call open_blas multiplication. I takes the paramters given and
-    puts the result of multiplication in C.
+    This function is used to call open_blas multiplication. It takes the paramters given and
+    puts the result of multiplication in *C.
 
-    To be used in open_blas_measure.cpp
+    To be used in multiplication by open_blas
 */
 void call_open_blas(double *A, int rowA, double *B, int colB, int commonSide, double *C) {
     char t = 'N';
