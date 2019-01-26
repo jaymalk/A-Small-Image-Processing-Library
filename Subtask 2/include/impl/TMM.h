@@ -1,5 +1,5 @@
 /*
-   Threaded multiplication of a matrix (m*n) with a vector (n*1), giving anothre vector
+   Threaded multiplication of a mtrx (m*n) with a vector (n*1), giving anothre vector
  */
 
 #include <iostream>
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-double * matrix;
+double * mtrx;
 double * vctor;
 double * prod;
 int vc_len;
@@ -27,8 +27,9 @@ void *newmult(void *pass) {
     int b = *(i+1);
 
     for(int k = a; k<b; k++) {
+        prod[k] = 0;
         for(int j=0; j<vc_len; j++)
-            prod[k] += (matrix[k*vc_len+j] * vctor[j]);
+            prod[k] += (mtrx[k*vc_len+j] * vctor[j]);
     }
 
     return NULL;
@@ -64,11 +65,12 @@ void multiplyThreaded(int rowA, int no_threads=6) {
     To call multiplication from outside. Intakes pointers to values
     and puts them for global multiplication.
 */
-void call_multiplication(double *A, int rowA, double *B, int rowB, double *C) {
-    matrix = A;
+double * call_multiplication(double *A, int rowA, double *B, int rowB) {
+    mtrx = A;
     vctor = B;
-    prod = C;
+    prod = (double *)malloc(sizeof(double)*rowA);
     vc_len = rowB;
     int no_threads = 1+min((int)(sysconf(_SC_NPROCESSORS_ONLN) - 2), (int)(pow(rowA, .35) - 1));
     multiplyThreaded(rowA, no_threads);
+    return prod;
 }

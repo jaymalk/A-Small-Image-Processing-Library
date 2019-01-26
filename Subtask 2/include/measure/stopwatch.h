@@ -2,6 +2,11 @@
 #include <ctime>
 #include <iostream>
 
+/*
+    Stopwatch program.
+    Taken from the internet
+*/
+
 #ifndef STOP
 #define STOP
 

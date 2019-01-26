@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 
-#include "VectorToArray.h"
+#include "AIO.h"
 #include "../Subtask 1/NIO.h"
 #include "stopwatch.h"
 
-#include "OBM.cpp"
+// #include "OBM.cpp"
 // #include "MKM.cpp"
 #include "TMM.cpp"
 
@@ -14,7 +14,7 @@ using namespace std;
 double *A, *B, *C;
 
 int main() {
-    ofstream out("Data/total.csv");
+    ofstream out("Data/our.txt");
     out << "Time\n\n";
 
     stopwatch sw;
@@ -33,24 +33,24 @@ int main() {
             call_multiplication(A, i, B, i, C);
 
         sw.tock();
-            out << sw.report_ms() << " ";
-
-        sw.reset();
-        sw.tick();
-
-        for(int j=0; j<100; j++)
-            call_open_blas(A, i, B, 1, i, C);
-
-        sw.tock();
-            out << sw.report_ms() << " ";
-
-        sw.reset();
-        sw.tick();
-
-        for(int j=0; j<100; j++)
-            call_open_blas(A, i, B, 1, i, C);
-
-        sw.tock();
+        //     out << sw.report_ms() << " ";
+        //
+        // sw.reset();
+        // sw.tick();
+        //
+        // for(int j=0; j<100; j++)
+        //     call_open_blas(A, i, B, 1, i, C);
+        //
+        // sw.tock();
+        //     out << sw.report_ms() << " ";
+        //
+        // sw.reset();
+        // sw.tick();
+        //
+        // for(int j=0; j<100; j++)
+        //     call_open_blas(A, i, B, 1, i, C);
+        //
+        // sw.tock();
             out << sw.report_ms() << "\n";
     }
 }
