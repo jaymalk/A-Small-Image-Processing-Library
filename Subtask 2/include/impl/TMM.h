@@ -65,10 +65,10 @@ void multiplyThreaded(int rowA, int no_threads=6) {
     To call multiplication from outside. Intakes pointers to values
     and puts them for global multiplication.
 */
-double * call_multiplication(double *A, int rowA, double *B, int rowB) {
+double * call_multiplication(double *A, int rowA, double *B, int rowB, double *C) {
     mtrx = A;
     vctor = B;
-    prod = (double *)malloc(sizeof(double)*rowA);
+    prod = C;
     vc_len = rowB;
     int no_threads = 1+min((int)(sysconf(_SC_NPROCESSORS_ONLN) - 2), (int)(pow(rowA, .35) - 1));
     multiplyThreaded(rowA, no_threads);

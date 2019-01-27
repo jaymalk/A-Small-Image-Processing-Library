@@ -112,7 +112,8 @@ using namespace std;
             double *B = convertToArray(kernel1D);
             double *T = convertToToeplitzForm(A, matrix.size(), kernel.size());
 
-            double* C = call_multiplication(T, row, B, col);
+            double *C = (double *)malloc(sizeof(double) * row);
+            C = call_multiplication(T, row, B, col, C);
             free(T);
             free(A);
             free(B);
