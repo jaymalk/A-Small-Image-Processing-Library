@@ -3,12 +3,15 @@
 
 #### Overview
   - [Command Line Arguments](#command-line-arguments)
-    -   [Convolution](#convolution)
-    -   [Activation](#activation)
-    -   [Pooling](#pooling)
+      - [Implementations](#implementations)
+    - [Convolution](#convolution)
+    - [Activation](#activation)
+    - [Pooling](#pooling)
   - [Other Helpful Functions](#other-helpful-functions)
       - [Matrix View](#matrix-view)
       - [Save Previous](#save-previous)
+
+- [Performance Measurement](#performance-measurement)
 
 <br><br>
 
@@ -18,10 +21,19 @@ We have used the approach where the user can enter a interpreter (basic) and pro
 
 All commands defined below follow , except for one constraint that *arrow keys must not be pressed*<br>
 
-On executing the make file, three executable objects will be created, namely- ipl_mkl, ipl_oblas, and ipl_core.
-<br>
+#### Implementations
 
-To enter the particular interpreter type `./ipl_mkl` or `./ipl_oblas` or `ipl_core`, and just type `exit` to exit. Also, `clear` can be used to clear the screen.
+On executing the make file, three executable files will be created. These include
+
+- `ipl_mkl`
+
+- `ipl_oblas`
+
+- `ipl_core.`
+
+  <br>
+
+To enter a particular interpreter, type `./ipl_mkl` or `./ipl_oblas` or `ipl_core`, and just type `exit` to exit. Another command `clear` can be used to clear the screen.
 
 Also, `...` can be use to [repeat/augment](#save-previous) last command.
 
@@ -161,3 +173,21 @@ _To augment the previous command (output on console) and saving the output to a 
 _Command Format_ <br>
     To repeat last command  >  `...` <br>
     To augment last command (save only) > `... output_file`
+
+
+
+## Performance Measurement
+
+We have measured the performance of our implementation, with ***mkl*** and ***open_blas*** in various ways. These are as followed.
+
+### Continous multiplication
+
+In this case, we have take matrices of order $n \star  n$ and multiplied it with a vector of size $ n * 1 $ .
+
+We continously vary $ n : 3 \mapsto 800 $ and measure time for each multiplication. Then we plot it to get an overview of timings.
+
+### Step multiplication
+
+In this case, we have multiplied the same matrix a hundred times to get statistical data on multiplication.
+
+We let $ n \in \{ 100*i \mid i : 1\rightarrow 8\} $, and measure time at each level. We, then, plotted these values as ***Box Plot***.
