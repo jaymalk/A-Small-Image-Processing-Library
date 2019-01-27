@@ -6,9 +6,9 @@
 #include "../../include/io/NIO.h"
 #include "./measure/watch.h"
 
-#include "../../include/impl/OBM.h"
+// #include "../../include/impl/OBM.h"
 // #include "../../include/impl/MKM.h"
-// #include "../../include/impl/TMM.h"
+#include "../../include/impl/TMM.h"
 
 using namespace std;
 
@@ -27,22 +27,22 @@ int main(int argc, char** argv) {
 
         for(int j=0; j<100; j++) {
 
-            // w1.start();
-            // call_multiplication(A, i, B, i, C);
-            // w1.stop();
-            // out << setprecision(10) <<w1.measure() << " ";
-            // w1.reset();
-
             w1.start();
-            call_open_blas(A, i, B, 1, i, C);
+            call_multiplication(A, i, B, i, C);
             w1.stop();
             out << setprecision(10) <<w1.measure() << "\n";
             w1.reset();
 
             // w1.start();
+            // call_open_blas(A, i, B, 1, i, C);
+            // w1.stop();
+            // out << setprecision(10) <<w1.measure() << "\n";
+            // w1.reset();
+
+            // w1.start();
             // call_mkl(A, i, B, 1, i, C);
             // w1.stop();
-            // out << setprecision(10) <<w1.measure() << " ";
+            // out << setprecision(10) <<w1.measure() << "\n";
             // w1.reset();
         }
         free(A);

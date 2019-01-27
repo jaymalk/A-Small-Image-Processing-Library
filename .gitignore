@@ -39,9 +39,9 @@
 
 # Text file test cases
 *.txt
-!open_blas.txt
-!mkl.txt
-!core.txt
+!oblas*.txt
+!mkl*.txt
+!core*.txt
 
 # Generator scripts in python
 *.py
