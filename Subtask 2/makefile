@@ -18,5 +18,6 @@ old:
 	@echo "Complete."
 
 #Clear all files matching [ipl*]
-clear:
-	rm -f ipl*
+clear:	
+	@rm -f ipl*
+	@echo "Done !!"

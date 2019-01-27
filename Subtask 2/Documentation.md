@@ -186,9 +186,9 @@ We have measured the performance of our implementation, with ***mkl*** and ***op
 
 ### Continuous multiplication
 
-In this case, we have take matrices of order **n*n** and multiplied it with a vector of size  **n * 1** ​ .
+In this case, we have taken matrices of order **n*n** and multiplied it with a vector of size  **n * 1** ​ .
 
-We continuously vary **n** from *8*  - *300*,  and measure time for each multiplication. Then we plot it to get an overview of timings.
+We vary **n** from *8*  - *300* with a step of *1*,  and measure time for each multiplication. Then we plot it to get an overview of timings.
 
 ### Step multiplication
 
