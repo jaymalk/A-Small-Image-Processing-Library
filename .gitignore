@@ -41,7 +41,7 @@
 *.txt
 !open_blas.txt
 !mkl.txt
-!our.txt
+!core.txt
 
 # Generator scripts in python
 *.py
