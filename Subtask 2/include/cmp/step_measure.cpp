@@ -18,20 +18,19 @@ int main(int argc, char** argv) {
     string name = argv[1];
     watch w1;
 
-    ofstream out("data/"+name+"_step.txt");
+    for(int i=100; i<=800; i+=100) {
 
-    for(int j=0; j<100; j++) {
-        cout << j << "\n";
-        for(int i=100; i<=800; i+=100) {
+        A = convertToArray(inputSquareMatrix("../../files/size_"+to_string(i*i)+".txt"));
+        B = convertToArray(inputVector("../../files/size_"+to_string(i)+".txt"));
+        C = (double *)malloc(sizeof(double)*i);
+        ofstream out("data/"+name+"_step"+to_string(i)+".txt");
 
-            A = convertToArray(inputSquareMatrix("../../files/size_"+to_string(i*i)+".txt"));
-            B = convertToArray(inputVector("../../files/size_"+to_string(i)+".txt"));
-            C = (double *)malloc(sizeof(double)*i);
+        for(int j=0; j<100; j++) {
 
             w1.start();
             call_multiplication(A, i, B, i, C);
             w1.stop();
-            out << setprecision(10) <<w1.measure() << " ";
+            out << setprecision(10) <<w1.measure() << "\n";
             w1.reset();
 
             // w1.start();
@@ -45,11 +44,9 @@ int main(int argc, char** argv) {
             // w1.stop();
             // out << i << " " << setprecision(10) <<w1.measure() << "\n";
             // w1.reset();
-
-            free(A);
-            free(B);
-            free(C);
         }
-        out << "\n";
+        free(A);
+        free(B);
+        free(C);
     }
 }
