@@ -1,13 +1,13 @@
 #include <iostream>
 #include <fstream>
 
-#include "AIO.h"
-#include "../Subtask 1/NIO.h"
-#include "stopwatch.h"
+#include "./include/io/AIO.h"
+#include "./include/io/NIO.h"
+#include "./include/measure/stopwatch.h"
 
-// #include "OBM.cpp"
-// #include "MKM.cpp"
-#include "TMM.cpp"
+ //#include "./include/impl/OBM.h"
+// #include "./include/impl/MKM.h"
+#include "./include/impl/TMM.h"
 
 using namespace std;
 
