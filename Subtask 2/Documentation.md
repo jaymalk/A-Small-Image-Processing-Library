@@ -17,7 +17,7 @@
 
 ## Command Line Arguments
 
-We have used the approach where the user can enter a interpreter (basic) and provide commands in a continous way. <br>
+We have used the approach where the user can enter a interpreter (basic) and provide commands in a continuous way. <br>
 
 All commands defined below follow , except for one constraint that *arrow keys must not be pressed*<br>
 
@@ -36,6 +36,10 @@ On executing the make file, three executable files will be created. These includ
 To enter a particular interpreter, type `./ipl_mkl` or `./ipl_oblas` or `ipl_core`, and just type `exit` to exit. Another command `clear` can be used to clear the screen.
 
 Also, `...` can be use to [repeat/augment](#save-previous) last command.
+
+Note if only a single implementation is to be compiled, then just enter its code while calling `make`.  e.g. `make mkl` or `make core`
+
+Also, to implement basic shell without any threading features just run `make old` (run as `./ipl` )
 
 <br><br>
 
@@ -180,14 +184,16 @@ _Command Format_ <br>
 
 We have measured the performance of our implementation, with ***mkl*** and ***open_blas*** in various ways. These are as followed.
 
-### Continous multiplication
+### Continuous multiplication
 
-In this case, we have take matrices of order $n \star  n$ and multiplied it with a vector of size $ n * 1 $ .
+In this case, we have take matrices of order **n*n** and multiplied it with a vector of size  **n * 1** ​ .
 
-We continously vary $ n : 3 \mapsto 800 $ and measure time for each multiplication. Then we plot it to get an overview of timings.
+We continuously vary **n** from *8*  - *300*,  and measure time for each multiplication. Then we plot it to get an overview of timings.
 
 ### Step multiplication
 
 In this case, we have multiplied the same matrix a hundred times to get statistical data on multiplication.
 
-We let $ n \in \{ 100*i \mid i : 1\rightarrow 8\} $, and measure time at each level. We, then, plotted these values as ***Box Plot***.
+We varied **n** from *100 - 800* with a step of *100* and measure time at each level.
+
+We, then, plotted these values as ***Box Plot***.
