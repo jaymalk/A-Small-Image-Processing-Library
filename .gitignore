@@ -60,3 +60,5 @@ ipl
 
 #Ignore Openblas on ubuntu
 Subtask\ 2/OpenBLAS-0.2.20/
+
+*exe*
