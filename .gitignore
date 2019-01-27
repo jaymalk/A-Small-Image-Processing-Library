@@ -46,8 +46,8 @@
 # Generator scripts in python
 *.py
 
-# For ignoring interpreter
-ipl
+# For ignoring interpreter files
+ipl*
 
 #Ignore zip
 2017CS5*

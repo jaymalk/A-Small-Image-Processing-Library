@@ -3,7 +3,9 @@
 #include <string>
 #include <cmath>
 #include <algorithm>
-#include "padding.h"
+
+#include "../padding.h"
+#include "../../io/AIO.h"
 
 using namespace std;
 
@@ -94,7 +96,7 @@ using namespace std;
     First two parameters are kernel and matrix, resp.
     Third for selection between convolution (true) and cross-correlation (false)
     To include padding additional argument 'boolean' shall surmise*/
-    vector<vector<float>> convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false) {
+    double * convolutionByMultiplication(vector<vector<float>> kernel, vector<vector<float>> matrix, bool convolution, bool padding=false) {
             if(padding)
                     matrix = pad(matrix, kernel.size()-1);
             vector<float> kernel1D = changeTo1D(kernel);
@@ -102,6 +104,6 @@ using namespace std;
                 reverse(kernel1D.begin(), kernel1D.end()); // For convolution instead of cross-correlation
             vector<vector<float>> toeplitz = convertToToeplitzMatrix(matrix, kernel.size());
             vector<float> conv1d = getConvolutionByMultiplication(toeplitz, kernel1D);
-            return changeToSqaure2D(conv1d);
+            return convertToArray(changeToSqaure2D(conv1d));
     }
 #endif

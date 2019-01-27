@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-#include "convolution_threaded.h"
+#include "convolution_without_threading.h"
 #include "../../io/NIO.h"
 #include "../../io/IO.h"
 #include "../../io/AIO.h"
