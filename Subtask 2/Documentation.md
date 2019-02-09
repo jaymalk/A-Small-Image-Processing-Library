@@ -197,3 +197,5 @@ In this case, we have multiplied the same matrix a hundred times to get statisti
 We varied **n** from *100 - 800* with a step of *100* and measure time at each level.
 
 We, then, plotted these values as ***Box Plot***.
+
+Both the plots are present in the main directory in `epg` as well as `png` format.
