@@ -42,7 +42,8 @@
 !oblas*.txt
 !mkl*.txt
 !core*.txt
-
+!conv*.txt
+!fc*.txt
 # Generator scripts in python
 *.py
 
