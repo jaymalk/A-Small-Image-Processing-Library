@@ -44,6 +44,7 @@
 !core*.txt
 !conv*.txt
 !fc*.txt
+!digit*.txt
 # Generator scripts in python
 *.py
 
