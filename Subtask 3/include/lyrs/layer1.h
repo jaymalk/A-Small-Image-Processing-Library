@@ -22,13 +22,13 @@ bool ready = false;
 void input_data_l1() {
     ifstream l1filters("./wts/conv1.txt");
     string data;
-    for(int i=0; i<20; i++) {
+    for(int j=0; j<20; j++) {
         double *filter = (double *)malloc(25*(sizeof(double)));
         for(int i=0; i<25; i++) {
             getline(l1filters, data);
             filter[24-i] = stod(data);      // Storing the filter in inverted form to facilitate convolution
         }
-        filters[i] = filter;            // Sotring the created filter in position
+        filters[j] = filter;            // Sotring the created filter in position
     }
     for(int i=0; i<20; i++) {
         getline(l1filters, data);
