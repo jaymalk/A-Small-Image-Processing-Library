@@ -35,6 +35,21 @@ using namespace std;
         return array;
     }
 
+    /* FOR CONVERTING (2D as 1D) ARRAYS INTO VECTOR(GRIDS)
+        CREATED 11TH FEB (ABOVE COMMENTS NEED TO BE REMOVED)
+        FOR SOLE USE IN DIGIT RECOGNITION
+    */
+    vector<vector<float>> convertToSquareMatrix(double * A, int size) {
+        vector<vector<float>> matrix{};
+        for(int i=0; i<size; i++) {
+            vector<float> v{};
+            for(int j=0; j<5; j++)
+                v.push_back(A[i*5+j]);
+            matrix.push_back(v);
+        }
+        return matrix;
+    }
+
     /* Writing a (2D matrix) 1D array on a file.
         Column major order.
         */
