@@ -59,7 +59,7 @@ double * convolve_l1(int i, double * mat_toep) {
         return C;
 }
 
-double * convolve_layer_l1(double *matrix) {
+double ** convolve_layer_l1(double *matrix) {
     if(!ready)              // If filter is already prepared use it
         input_data_l1();        // Else create new one and store it
     double *mat_toep = convertToToeplitzForm(matrix, 28, 5);            // Convert the main matrix to toeplitz form, to be used on all filters
