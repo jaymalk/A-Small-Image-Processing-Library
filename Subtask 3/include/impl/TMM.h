@@ -10,6 +10,9 @@
 
 using namespace std;
 
+#ifndef TMM_H
+#define TMM_H
+
 double * mtrx;
 double * vctor;
 double * prod;
@@ -74,3 +77,5 @@ double * call_multiplication(double *A, int rowA, double *B, int rowB, double *C
     multiplyThreaded(rowA, no_threads);
     return prod;
 }
+
+#endif
