@@ -14,7 +14,7 @@
   - Input channels 20
   - Pooling with kernel K = 2, stride 2, so output is 12x12
   - Output channel 20
-  - Average pooling, so no weights
+  - Max pooling, so no weights
 
 ## Conv_2:
   - Input dimension N 12x12
@@ -30,7 +30,7 @@
   - Input channels 50
   - Pooling with kernel K = 2, stride 2, so output is 4x4
   - Output channel 50
-  - Average pooling, so no weights
+  - Max pooling, so no weights
 
 ## FC_1:
   - Input dimension N 4x4
