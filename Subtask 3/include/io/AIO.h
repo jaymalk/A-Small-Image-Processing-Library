@@ -43,8 +43,8 @@ using namespace std;
         vector<vector<float>> matrix{};
         for(int i=0; i<size; i++) {
             vector<float> v{};
-            for(int j=0; j<5; j++)
-                v.push_back(A[i*5+j]);
+            for(int j=0; j<size; j++)
+                v.push_back(A[i*size+j]);
             matrix.push_back(v);
         }
         return matrix;
