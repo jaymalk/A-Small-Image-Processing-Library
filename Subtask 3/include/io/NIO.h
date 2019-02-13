@@ -116,13 +116,20 @@ using namespace std;
     void writeMatrix(vector<vector<float>> c, ostream& out=cout) {
         for(int i=0; i<c[0].size(); i++)
                 for(int j=0; j<c.size(); j++)
-                        out << setprecision(14) << c[j][i] << "\n";
+                        out << setprecision(7) << c[j][i] << "\n";
+    }
+
+    /* Same function as above, but to write in row major order */
+    void writeMatrixRM(vector<vector<float>> c, ostream& out=cout) {
+        for(int i=0; i<c.size(); i++)
+                for(int j=0; j<c[0].size(); j++)
+                        out << setprecision(7) << c[i][j] << "\n";
     }
 
     /* Print/write a 1D vector */
     void writeVector(vector<float> c, ostream &out = cout) {
         for(int i=0; i<c.size(); i++)
-                out << setprecision(14) << c[i] << "\n";
+                out << setprecision(7) << c[i] << "\n";
     }
 
 #endif

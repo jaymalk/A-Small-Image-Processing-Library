@@ -67,7 +67,7 @@ using namespace std;
         out << "\n";
         for(int i=0; i<c.size(); i++) {
                 for(int j=0; j<c[i].size(); j++)
-                        out<< setw(15) << setprecision(10) << c[i][j];
+                        out<< setw(14) << setprecision(7) << c[i][j];
                 out << "\n";
         }
         out << "\n";

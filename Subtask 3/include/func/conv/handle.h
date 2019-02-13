@@ -7,7 +7,6 @@
 #include "convolution_without_threading.h"
 #include "../../io/NIO.h"
 #include "../../io/IO.h"
-#include "../../io/AIO.h"
 
 using namespace std;
 
@@ -117,18 +116,16 @@ void convolution_handle(int argc, vector<string> argv) {
             if(argc == 4)
             /* Output on command line*/
             {
-                double *d = convolutionByMultiplication(kernel, matrix, true);
-                printSquareArray(d, matrix.size()-kernel.size()+1);
-                free(d);
+
+                printMatrix(convolutionByMultiplication(kernel, matrix, true));
             }
             else
             /* Output in File*/
             {
                 try {
                     ofstream out(argv[4]);
-                    double *d = convolutionByMultiplication(kernel, matrix, true);
-                    writeSquareArray(d, matrix.size()-kernel.size()+1, out);
-                    free(d);
+
+                    writeMatrix(convolutionByMultiplication(kernel, matrix, true), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -159,18 +156,16 @@ void convolution_handle(int argc, vector<string> argv) {
             if(argc == 4)
             /* Output on command line*/
             {
-                double *d = convolutionByMultiplication(kernel, matrix, true, true);
-                printSquareArray(d, matrix.size());
-                free(d);
+
+                printMatrix(convolutionByMultiplication(kernel, matrix, true, true));
             }
             else
             /* Output in File*/
             {
                 try {
                     ofstream out(argv[4]);
-                    double *d = convolutionByMultiplication(kernel, matrix, true, true);
-                    writeSquareArray(d, matrix.size(), out);
-                    free(d);
+
+                    writeMatrix(convolutionByMultiplication(kernel, matrix, true, true), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -284,18 +279,16 @@ void convolution_handle(int argc, vector<string> argv) {
             if(argc == 4)
             /* Output on command line*/
             {
-                double *d = convolutionByMultiplication(kernel, matrix, false);
-                printSquareArray(d, matrix.size()-kernel.size()+1);
-                free(d);
+
+                printMatrix(convolutionByMultiplication(kernel, matrix, false));
             }
             else
             /* Output in File*/
             {
                 try {
                     ofstream out(argv[4]);
-                    double *d = convolutionByMultiplication(kernel, matrix, false);
-                    writeSquareArray(d, matrix.size()-kernel.size()+1, out);
-                    free(d);
+
+                    writeMatrix(convolutionByMultiplication(kernel, matrix, false), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");
@@ -326,18 +319,16 @@ void convolution_handle(int argc, vector<string> argv) {
             if(argc == 4)
             /* Output on command line*/
             {
-                double *d = convolutionByMultiplication(kernel, matrix, false, true);
-                printSquareArray(d, matrix.size());
-                free(d);
+
+                printMatrix(convolutionByMultiplication(kernel, matrix, false, true));
             }
             else
             /* Output in File*/
             {
                 try {
                     ofstream out(argv[4]);
-                    double *d = convolutionByMultiplication(kernel, matrix, false, true);
-                    writeSquareArray(d, matrix.size(), out);
-                    free(d);
+
+                    writeMatrix(convolutionByMultiplication(kernel, matrix, false, true), out);
                 }
                 catch(...) {
                     throw runtime_error("Error in writing. Please check.\n");

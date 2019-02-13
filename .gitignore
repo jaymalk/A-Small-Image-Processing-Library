@@ -45,8 +45,10 @@
 !conv*.txt
 !fc*.txt
 !digit*.txt
+
 # Generator scripts in python
 *.py
+!process.py
 
 # For ignoring interpreter files
 ipl*
