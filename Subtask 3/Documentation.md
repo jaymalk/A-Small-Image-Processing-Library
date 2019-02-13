@@ -25,8 +25,8 @@ Also, `...` can be use to [repeat/augment](#save-previous) last command.
 
 These commands are further extended to facilitate digit recognition features.
 Following are the dependencies of digit recognition functions:
-    - `cv2` (OpenCV for python)
-    - `system()` functionality from C++
+  - `cv2` (OpenCV for python)
+  - `system()` functionality from C++
 
 <br><br>
 
@@ -142,7 +142,7 @@ vector<vector<{int, float}>> maxPool(vector<vector<{int, float}>> matrix, int fi
 ```cpp
 vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int filterSize = 2, int stride = 2 );
 ```
-
+****
 
 ### Digit Recognition
 ```cpp
@@ -152,7 +152,7 @@ vector<vector<{int, float}>> avgPool(vector<vector<{int, float}>> matrix, int fi
     - _Command Format_ (On console) <br>
         Output on console > `digit_rec png_file` <br>
 
-- ***Average Pool***
+- ***Digit Probabilities***
     - _Command Format_ (On console) <br>
         Output on console > ` digit_prob png_file` <br>
 
