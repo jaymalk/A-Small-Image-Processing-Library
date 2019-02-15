@@ -15,14 +15,14 @@
 
 vector<vector<float>> processImage(string filename) {
     const string start = "python3 ./include/lyrs/process.py "+filename;
-    const string end = "rm -f temp.txt";
+    const string end = "rm -f .temp";
 
     int a = system(start.c_str());
     if(a != 0)
-        throw runtime_error("Some problem with python or image_file.");
+        throw runtime_error("Some problem with python or file "+filename+" doesn't exist.\n");
 
     string data;
-    ifstream file("temp.txt");
+    ifstream file(".temp");
 
     vector<vector<float>> matrix{};
 
