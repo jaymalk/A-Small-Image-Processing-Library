@@ -14,7 +14,7 @@
 #define LENET
 
 vector<vector<float>> processImage(string filename) {
-    const string start = "python3 ./include/lyrs/process.py "+filename;
+    const string start = "python ./include/lyrs/process.py "+filename;
     const string end = "rm -f .temp";
 
     int a = system(start.c_str());
