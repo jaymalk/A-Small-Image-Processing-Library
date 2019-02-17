@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <map>
 #include <stdlib.h>
 
 #include "layers/l1.h"
@@ -43,10 +44,22 @@ vector<vector<float>> processImage(string filename) {
 }
 
 void print_formatted(vector<float> data) {
+    vector<pair<int, float>> probs{};
     for(int i=0; i<10; i++) {
-        string s = "\nDigit : "+to_string(i)+", Probablilty : "+to_string(data[i]);
-        cout << s << "\n";
+        probs.push_back(pair<int, float>(i, data[i]));
     }
+    pair<int, float> temp(0, 0);
+    for(int i=0; i<10; i++) {
+        for(int j=i+1; j<10; j++) {
+            if(probs[i].second < probs[j].second) {
+                temp = probs[i];
+                probs[i] = probs[j];
+                probs[j] = temp;
+            }
+        }
+    }
+    for(int i=0; i<5; i++)
+        cout << "Digit :" << to_string(probs[i].first) << " | Probability : " << to_string(probs[i].second) << "\n";
     cout << "\n";
 }
 
